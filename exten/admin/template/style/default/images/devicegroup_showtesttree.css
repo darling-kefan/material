@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul,li{margin:0px;padding:0px; list-style:none}
+.devgroup li{margin-left:10px;line-height:24px;}
+li img{margin-right:4px}
+#devgName,#actionBtn{display:inline-block;}
+#devgName{font-weight:bold;height:30px;line-height:50px;}
+#actionBtn{float:right;margin-top:10px;}
+#actionBtn a{display:inline-block;text-align:center;}
+#devList{border:1px solid #CCC;margin:20px auto;min-height:300px;height:300px;height:auto}
+#devList ul{padding:5px;}
+#topBar{line-height:27px;}
+.btn{margin-top:0px;}

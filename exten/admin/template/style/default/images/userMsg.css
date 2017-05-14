@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+#main .linep{min-height:30px;height:30px;height:auto;}
+#main .linep label, #main .linediv label{ vertical-align:top;}
+#typelist{width:500px;display:inline-block;min-height:25px;height:25px;height:auto;margin-left:-4px;}
+#usertype_group li{float:left;padding-right:5px;}

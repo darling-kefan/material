@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 授权设备组树管理员列表
+ */
+
+.treelist ul,.treelist li{margin:0px;padding:0px; list-style:none;margin-top:5px;}
+.treelist li ul{margin-left:10px;margin-top:5px;}
+
+#apperInfotable,#devgrouptable{border:1px solid #d8d8d8;margin:0 auto}
+#apperInfotable tr,#apperInfotable th,#devgrouptable tr,#devgrouptable th{text-align:center;}
+#apperInfotable th,#devgrouptable th{height:35px;background:#f4f4f4;}
+#apperInfotable tr,#devgrouptable tr{height:30px;}
+#apperInfotable td,#devgrouptable td{overflow:hidden;}
+#apperInfotable tfoot tr,#devgrouptable tfoot tr{text-align:left;}
+#devtreelist{min-height:410px;height:410px;height:auto;}
+#listval div{display:inline-block;margin-left:10px;vertical-align:top}
+#listval{overflow-x:auto;}
+.pagetr td{padding:5px;}
+.treelist{display:inline-block; vertical-align:top;margin-bottom:30px;}
+.treelist li input[type='checkbox']{margin-right:5px;}
+.pagelist{margin-right:10px;float:right;margin-top:10px;}
+#actionbtn{text-align:center;margin:20px 0;}
+
+#haveDG{display:none}
+#haveDG .top{height:10px;border-bottom:1px solid #65a1d9;}
+.tran{width:26px; height:11px;background:url(images/tran.png) no-repeat;margin:0 auto;}
+#haveDG .body{min-height:48px;height:48px;height:auto;border-left:1px solid #65a1d9;border-right:1px solid #65a1d9;background:#e0effd}
+#haveDGList label{display:inline-block;width:100px; margin:2px; vertical-align:top;}
+#haveDGList{/*float:right;*/ display:inline-block; width:610px;margin:5px 0;/*height:48px;*/}
+#haveDGList span{display:inline-block;margin:2px;width:120px; overflow:hidden}
+#haveDGList span input{ vertical-align:middle}
+#haveDG .bottom{height:12px;border-top:1px solid #65a1d9}
+#haveDgTitle{width:130px;display:inline-block; margin:5px; vertical-align:top;}

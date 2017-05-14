@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>登陆日志 - Powered By sqtang</title>
+<meta name="author" content="sqtang" />
+<meta name="copyright" content="sqtang" />
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+	var $clearButton = $("#clearButton");
+	var $resultRow = $("#listTable tr:gt(0)");
+	$clearButton.click(function() {
+		var $this = $(this);
+		$.dialog({
+			type: "warn",
+			content: "您确定要清空吗？",
+			onOk: function() {
+				$.ajax({
+					url: "?app=blog&act=deleteLoginLog",
+					type: "POST",
+					data: {all: 'all'},
+					dataType: "json",
+					cache: false,
+					success: function(message) {
+						if (message.type == "success") {
+							$resultRow.remove();
+						}
+						$.message(message);
+					}
+				});
+			}
+		});
+		return false;
+	});
+
+	//删除单条日志记录
+	var $delete = $("#listTable a.delete");// 删除
+	$delete.click(function() {
+		var $this = $(this);
+		$.dialog({
+			type: "warn",
+			content: "您确定要删除吗？",
+			onOk: function() {
+				$.ajax({
+					url: "?app=blog&act=deleteLoginLog",
+					type: "POST",
+					data: {bid: $this.attr("val")},
+					dataType: "json",
+					cache: false,
+					success: function(message) {
+						$.message(message);
+						if (message.type == "success") {
+							$this.closest("tr").remove();
+						}
+					}
+				});
+			}
+		});
+		return false;
+	});
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		日志管理 &raquo; 登陆日志 <span>(共<span id="pageTotal"><%{$total_num}%></span>条记录)</span>
+	</div>
+	<form id="listForm" action="admin.php" method="get">
+	<input type="hidden" name="app" value='blog'/>
+	<input type="hidden" name="act" value='getLoginLog'/>
+		<div class="bar">
+			<div class="buttonWrap">
+			  <%{if $hasDel eq 1}%>
+				<a href="javascript:;" id="deleteButton"  rel="?app=blog&act=deleteLoginLog" class="iconButton disabled">
+					<span class="deleteIcon">&nbsp;</span>删除
+				</a>
+				<a class="iconButton" id="clearButton" href="javascript:;">
+					<span class="clearIcon">&nbsp;</span>清空
+				</a>
+				<%{/if}%>
+
+				<a href="javascript:;" id="refreshButton" class="iconButton">
+					<span class="refreshIcon">&nbsp;</span>刷新
+				</a>
+				<div class="menuWrap">
+					<a href="javascript:;" id="pageSizeSelect" class="button">
+						每页显示<span class="arrow">&nbsp;</span>
+					</a>
+					<div class="popupMenu">
+						<ul id="pageSizeOption">
+							<%{foreach $pageArr as $key=>$val}%>
+							<%{if $val eq $pageSize}%>
+							<li>
+								<a href="javascript:;" class="current" val="<%{$val}%>"><%{$val}%></a>
+							</li>
+							<%{else}%>
+							<li>
+								<a href="javascript:;"  val="<%{$val}%>"><%{$val}%></a>
+							</li>
+							<%{/if}%>
+							<%{/foreach}%>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="menuWrap">
+				<div class="search">
+					<span id="searchPropertySelect" class="arrow">&nbsp;</span>
+					<input type="text" id="searchValue" name="searchValue" value="<%{$searchValue}%>" maxlength="200" />
+					<button type="submit">&nbsp;</button>
+				</div>
+				<div class="popupMenu">
+					<ul id="searchPropertyOption">
+						<%{foreach $searchType as $key=>$val}%>
+						  <%{if $searchProperty eq $key}%>
+						  <li><a href="javascript:;" class="current" val="<%{$key}%>"><%{$val}%></a></li>
+						  <%{else}%>
+						  <li><a href="javascript:;" val="<%{$key}%>"><%{$val}%></a></li>
+						  <%{/if}%>
+						<%{/foreach}%>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<table id="listTable" class="list">
+			<tr>
+				<th class="check">
+					<input type="checkbox" id="selectAll" />
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="bname">用户名</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="client_ip">IP</a>
+				</th>
+				<th>
+					<span>内容</span>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="occur_time">创建日期</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="eventtype">事件</a>
+				</th>
+				<th>
+					<span>操作</span>
+				</th>
+			</tr>
+			<%{if $total_num eq 0}%>
+				<tr><td colspan="7"><span>没有相关记录!</span></td></tr>
+			<%{else}%>
+			   <%{foreach $logList as $val}%>
+				<tr>
+					<td>
+						<input type="checkbox" name="ids[]" value="<%{$val.bid}%>" />
+					</td>
+					<td><%{$val.bname}%></td>
+					<td><%{$val.client_ip}%></td>
+					<td><%{$val.event}%></td>
+					<td><span title="<%{$val.occur_time}%>"><%{$val.occur_time}%></span></td>
+					<td>
+					<%{if $val.eventtype eq 1}%>
+						<span class="green">登陆</span>
+					<%{else}%>
+						<span class="gray">退出</span>
+					<%{/if}%>
+					</td>
+					<td>
+					<%{if $hasDel eq 1}%>
+						<a href="javascript:;"  class="delete" val="<%{$val.bid}%>">[删除]</a>
+					<%{else}%>
+						<span class="gray">[删除]</span>
+					<%{/if}%> 
+					</td>
+				</tr>
+				<%{/foreach}%>
+				<%{/if}%>
+		</table>
+<input type="hidden" id="pageSize" name="pageSize" value="<%{$pageSize}%>" />
+<input type="hidden" id="searchProperty" name="searchProperty" value="<%{$searchProperty}%>" />
+<input type="hidden" id="orderProperty" name="orderProperty" value="<%{$orderProperty}%>" />
+<input type="hidden" id="orderDirection" name="orderDirection" value="<%{$orderDirection}%>" />
+<%{$pageStr}%>
+	</form>
+</body>
+</html>

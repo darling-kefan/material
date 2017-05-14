@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>原料中心</title>
+<link rel="stylesheet" href="exten/default/template/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<link href="exten/default/template/css/base.css" rel="stylesheet" type="text/css" /> 
+<link href="exten/default/template/css/comm.css" rel="stylesheet" type="text/css" /> 
+
+<script type="text/javascript" src="exten/default/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="plugin/flot/excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.pie.js"></script>
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.categories.js"></script>
+<style type="text/css">
+.shapeSelect th {
+	width: 150px;
+	line-height: 25px;
+	padding: 15px 0px 10px 0px;
+	text-align: center;
+	font-weight: normal;
+	color: #333333;
+	background-color: #f8fbff;
+}
+
+#showShape {
+    background: linear-gradient(#F6F6F6 0px, #FFFFFF 50px) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    height: 450px;
+    margin: 15px auto 30px;
+    padding: 20px 10px 10px;
+    width: 680px;
+}
+
+.right-container .condition {
+    background: url("exten/default/template/img/mon_bj.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    /*border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #E3E3E3;
+    border-top: 1px solid #E3E3E3;*/
+    height: 39px;
+    line-height: 39px;
+    padding: 0 10px;
+}
+.right-container .condition  .condionL {
+    float: left;
+    line-height: 39px;
+    text-align: left;
+}
+.right-container .condition .condionR {
+    float: right;
+    line-height: 39px;
+    text-align: left;
+}
+
+
+#chartDiv {
+	box-sizing: border-box;
+	width: 700px;
+	height: 350px;
+	padding:0 0 15px 0;
+	background: #fff;
+	/*background: linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);*/
+}
+#chartLabel {
+	width:700px;
+	height:28px;
+	line-height:28px;
+	font-weight:bold;
+	text-align:center;
+	color:#333;
+}
+
+#chartDiv .demo-placeholder {
+	width: 700px;
+	height: 335px;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+</style>
+<script type="text/javascript">
+
+$().ready(function() {
+	$.ajaxSetup({ cache: false }); 
+	//弹出框操作
+	jQuery.navlevel2 = function(level1,dytime) {
+		$(level1).hover(function(){
+			$(level1).find('dl').show();
+		},
+		function(){
+			$(level1).find('dl').hide();
+		});
+	};
+	//导航栏弹出框
+	$.navlevel2("li.firstMenu",200);
+	//作图弹出框
+	$.navlevel2("li.ddsub",200);
+
+	//取消作图
+	$('.cancelmaping').click(function(){
+		$('#placeholder').html('');
+		$('#chartDiv').hide();
+	})
+
+	// 饼状图显示相关
+	function labelFormatter(label, series) {
+		return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+	}
+	// 图形展示
+	var $moreButton = $(".makemaping");
+	$moreButton.click(function() {
+		var selectStr = $('#selectDiv').html();
+		$.dialog({
+			title: "图表设置",
+			content: ' <table id="shapeSelect" class="shapeSelect"> <tr> <th> <img src="/material/exten/admin/template/images/icon_point.jpg" \/><br \/><input type="radio" name="shape" value="1" \/>曲线图 <\/th> <th> <img src="/material/exten/admin/template/images/icon_bar.jpg" \/><br \/><input type="radio" name="shape" value="2" \/>柱状图 <\/th> <th> <img src="/material/exten/admin/template/images/icon_pie.jpg" \/><br \/><input type="radio" name="shape" value="3" \/>饼状图  </th> <\/tr><tr><td colspan="3" style="padding-left:50px;height:28px; line-height:28px;">' + selectStr + '</td></tr> <\/table>',
+			width: 470,
+			modal: true,
+			ok: "确&nbsp;&nbsp;定",
+			cancel: "取&nbsp;&nbsp;消",
+
+			
+			onOk: function() {
+				var shapeVal  = $("input:radio[name='shape']:checked").val(); //作图类型
+				var optionV   = $('#shapeSelect .quotaSelect').val(); //选择表的哪个字段
+				var yearstart = $('#startDate').val();
+				var yearend   = $('#endDate').val();
+				var classid   = $('#classid').val();
+				var areaid	  = 0;
+				var needArea  = <%{$needArea}%>; //是否需要添加区域字段查询
+				if (needArea ==1)
+				{
+					areaid = $('#zSelect').val();
+				}
+				//var start	  = 0,end = 0;
+				//var type	  = <%{$type}%>; //表分类
+				//if (type == 1 || type == 2) { //如果是季度和月份的话则提取开始时间和结束时间
+				start	  = $('#start').val();
+				end       = $('#end').val();
+				//}
+				if (shapeVal == undefined) {
+					alert('请选择作图类型');
+					return false;
+				}
+				if (shapeVal == 1) { //曲线图
+					var options = {
+						lines: {
+							show: true,
+							//fill:true
+						},
+						points: {
+							show: true
+						},
+						grid: {
+							hoverable: true,
+							//clickable: true
+						},
+						xaxis: {
+							tickDecimals: 0,
+							tickSize: 1
+						}
+					}
+					function onDataReceived(series) {
+						$("#chartDiv").show();
+						$('#chartLabel').text(series.title);
+						$.plot("#placeholder", [ series.data] ,options);
+					}
+					var dataurl = 'index.php?app=classification&act=getchartData&tag=' + optionV +'&type=2&yearstart=' + yearstart + '&yearend=' + yearend + '&classid=' + classid + '&start=' + start + '&end=' + end + '&areaid=' + areaid;
+					$.ajax({
+						url: dataurl,
+						type: "GET",
+						dataType: "json",
+						success: onDataReceived
+					});
+					
+				} else if(shapeVal == 2) { //柱状图
+					function onDataReceived2(series) {
+						$("#chartDiv").show();
+						$('#chartLabel').text(series.title);
+						$.plot("#placeholder", [ series.data ], {
+							series: {
+								bars: {
+									show: true,
+									barWidth: 0.6,
+									align: "center",
+									fill: true,
+								},
+							},
+							xaxis: {
+								mode: "categories",
+								tickLength: 0
+							},
+							grid: {
+								labelMargin:10,
+								borderWidth:1,
+								tickLabel:3,
+								hoverable: true
+							},
+						});	
+					}
+					var dataurl = 'index.php?app=classification&act=getchartData&tag=' + optionV +'&type=2&yearstart=' + yearstart + '&yearend=' + yearend + '&classid=' + classid + '&start=' + start + '&end=' + end + '&areaid=' + areaid;
+					$.ajax({
+						url: dataurl,
+						type: "GET",
+						dataType: "json",
+						success: onDataReceived2
+					});
+					
+				} else if(shapeVal == 3) { //饼状图
+
+					function onDataReceived3(series) {
+						$("#chartDiv").show();	
+						$('#chartLabel').text(series.title);
+						$.plot($("#placeholder"), series.data, { 
+							series: {
+								pie: { 
+									show: true,
+									radius: 1,
+									
+									label: {
+										show: true,
+										radius: 1,
+										formatter: labelFormatter,
+										background: {
+											opacity: 0.8
+										}
+									}
+								}
+							},
+							legend: {
+								show: false
+							}
+						}); 
+					}
+
+					var dataurl = 'index.php?app=classification&act=getchartData&tag=' + optionV +'&type=3&yearstart=' + yearstart + '&yearend=' + yearend + '&classid=' + classid + '&start=' + start + '&end=' + end + '&areaid=' + areaid;
+					$.ajax({
+						url: dataurl,
+						type: "GET",
+						dataType: "json",
+						success: onDataReceived3
+					});
+
+				}
+			}	
+		});
+	});
+
+	//左侧栏操作
+	var $dds = $("dd.haveSons");
+	$dds.click(function(){
+		var classnames = $(this).attr("class");
+		var titleAttr = $(this).attr("id");
+		var contentAttr = $(this).attr("id").replace("title", "content");
+		var classnameArr = classnames.split(" ");
+		
+		if ($.inArray('open', classnameArr) >= 0) {
+			$("#" + titleAttr).removeClass("open");
+			$("#" + contentAttr).hide();
+		} else {
+			$("#" + titleAttr).addClass("open");
+			$("#" + contentAttr).show();
+		}
+	});
+
+	//点击指标，异步获取数据
+	var $quotas = $("a[name='asyncControl']");
+	$quotas.click(function(){
+		var quotaid     = $(this).attr('val');
+		var classid     = $('#classid').val();
+		var $dataHolder = $("#tableShow");
+		
+		//异步请求数据
+		$.ajax({
+			url: "index.php?app=classification&act=asyncQuotaInfo",
+			type: "GET",
+			data: {quotaid: quotaid,classid:classid},
+			dataType: "html",
+			cache: false,
+			success: function(data) {
+				$dataHolder.html(data);
+				$('#placeholder').html('');
+				$('#chartDiv').hide();
+			}
+		});
+	});
+
+	//鼠标滑过提示信息
+	function showTooltip(x, y, contents) {
+		$("<div id='tooltip'>" + contents + "</div>").css({
+			position: "absolute",
+			display: "none",
+			top: y + 5,
+			left: x + 5,
+			border: "1px solid #fdd",
+			padding: "2px",
+			"background-color": "#fee",
+			opacity: 0.80
+		}).appendTo("body").fadeIn(200);
+	}
+
+	var previousPoint = null;
+	$("#placeholder").bind("plothover", function (event, pos, item) {
+		if (item) {
+			if (previousPoint != item.dataIndex) {
+
+				previousPoint = item.dataIndex;
+
+				$("#tooltip").remove();
+				var x = item.datapoint[0],y = item.datapoint[1];
+				var tipsItem = null;
+				if (item.series.xaxis.ticks[previousPoint].label) {
+					x = item.series.xaxis.ticks[previousPoint].label;
+				} 
+				showTooltip(item.pageX, item.pageY, x + "年数值为: " + y);
+			}
+		} else {
+			$("#tooltip").remove();
+			previousPoint = null;            
+		}
+	});
+
+	$('#yearStart').change(function(){
+		var type = <%{$type}%>;
+		if (type == 1) //月份
+		{
+			$('#yearEnd').html('<option value="' + $(this).val() + '">' + $(this).val() + '</option>');
+		}
+
+		/*if (type == 2) //季度
+		{
+			$('#yearEnd').html('<option value="' + (parseInt($(this).val())+parseInt(2)) + '">' + (parseInt($(this).val()) + parseInt(2)) + '</option>');
+		}*/
+			
+	});
+
+	//搜索点击刷新功能
+	$('#search').click(function(){
+		var quotaid		= $('#quotaid').val();
+		var classid     = $('#classid').val();
+		var yearstart   = $('#yearStart').val(); //开始年份
+		var yearend     = $('#yearEnd').val(); //结束年份
+		var needArea    = <%{$needArea}%>; //是否需要添加区域字段查询
+		var areaid = 0;
+		if (needArea ==1)
+		{
+			areaid = $('#zSelect').val();
+		}
+		var start =0,end=0;
+		var type = <%{$type}%>;
+		if (type == 1 || type == 2) 
+		{
+			start = $('#dateStart').val();
+			end   = $('#dateEnd').val();
+		}
+		if (yearend < yearstart)
+		{
+			alert('结束日期不能小于开始日期!');
+			$('#yearEnd').focus();
+			return false;
+		}
+		/*if (yearend -yearstart > 10)
+		{
+			alert('只能搜索10年内的数据!');
+			$('#yearEnd').focus();
+			return false;
+		}*/
+		//异步请求数据
+		$.ajax({
+			url: "index.php?app=classification&act=asyncQuotaInfo",
+			type: "GET",
+			data: {quotaid: quotaid,classid:classid,yearstart:yearstart,yearend:yearend,start:start,end:end,areaid: areaid},
+			dataType: "html",
+			cache: false,
+			success: function(data) {
+				$('#startDate').val(yearstart);
+				$('#endDate').val(yearend);
+				$("#tableShow").html(data);
+				$('#placeholder').html('');
+				$('#chartDiv').hide();
+			}
+		});
+	})
+});
+</script>
+</head>
+
+<body>
+
+<%{include file='_main/header.tpl.htm'}%>
+
+<div class="main-wraper">
+	<div class="main">
+		<div class="toolTips">
+			<div class="spaceMenu"></div>
+			<div id="functionmenubar" class="mattblackmenu" style="float: left;">
+			<ul>
+			<li class="ddsub" rel="ddsubmenu1">
+				<a href="javascript:void(0);">
+					<img width="18" height="18" align="absmiddle" src="exten/default/template/img/icon_icon.jpg">
+					<span>图表管理</span>
+					<img class="downarrowpointer" src="exten/default/template/img/icon_dropDown.gif" style="width: 9px; height: 6px;">
+				</a>
+				<dl class="user-ops-menu">
+					<dd><a class="a makemaping" href="javascript:void(0);">作图</a></dd>
+					<dd><a class="b cancelmaping" href="javascript:void(0);">取消作图</a></dd>
+				</dl>
+			</li>
+			</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="left-menu">
+				<div class="left-menu-banner">
+					<span>指标</span>
+				</div>
+				<div class="left-menu-content">
+					<%{$leftMenu}%>
+				</div>
+			</div>
+			<div class="right-container">
+
+			<div class="condition">
+			<form id="dateSearch" name="dateSearch" method="get">
+            <div class="condionL">
+                <span id="zText">地区：</span>
+                <select id="zSelect" name="zSelect">
+				<%{foreach $areaList as $key=>$val}%>
+				<option title="<%{$val}%>"  value="<%{$key}%>"><%{$val}%></option>
+				<%{/foreach}%>
+				</select>
+            </div>
+            <div id="timeDiv" class="condionR">
+              &nbsp;查询时间：
+                <select style="width:70px" id="yearStart" name="yearStart">
+				<%{foreach $yearStart as $item}%>
+				<option value="<%{$item}%>"><%{$item}%>年</option>
+				<%{/foreach}%>
+				</select>
+				<%{if $type eq 2}%>
+				<select id="dateStart" name="dateStart">
+					<option value="1">第1季度</option>
+					<option value="2">第2季度</option>
+					<option value="3">第3季度</option>
+					<option value="4">第4季度</option>
+				</select>
+				<%{/if}%>
+
+				<%{if $type eq 1}%>
+					<select id="dateStart" name="dateStart">
+					<%{section name=foo start=1 loop=13 step=1}%>
+						<option value="<%{$smarty.section.foo.index}%>"><%{$smarty.section.foo.index}%>月</option>
+					<%{/section}%>
+					</select>
+				<%{/if}%>
+                -
+                <select style="width:70px" id="yearEnd" name="yearEnd">
+					<%{foreach $yearEnd as $item}%>
+					<option value="<%{$item}%>"><%{$item}%>年</option>
+					<%{/foreach}%>
+				</select>
+
+				<%{if $type eq 1}%>
+					<select id="dateEnd" name="dateEnd">
+					<%{section name=foo start=1 loop=13 step=1}%>
+						<option value="<%{$smarty.section.foo.index}%>"><%{$smarty.section.foo.index}%>月</option>
+					<%{/section}%>
+					</select>
+				<%{/if}%>
+
+				<%{if $type eq 2}%>
+				<select id="dateEnd" name="dateEnd">
+					<option value="1">第1季度</option>
+					<option value="2">第2季度</option>
+					<option value="3">第3季度</option>
+					<option value="4">第4季度</option>
+				</select>
+				<%{/if}%>
+                <input type="button" value="刷新" class="bt" id="search">
+            </div>
+			</form>
+        </div>
+				<div id="chartDiv" style="display:none;">
+						<div id="chartLabel"></div>
+						<div id="placeholder" class="demo-placeholder"></div>
+				</div>
+				<div id="tableShow"><%{$fieldList}%></div>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="hidden" name="classid" id="classid" value="<%{$currentid}%>"/>
+<%{include file='_main/footer.tpl.htm'}%>
+
+</body>
+</html>

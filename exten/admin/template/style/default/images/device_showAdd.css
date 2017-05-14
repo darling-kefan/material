@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ *新建设备
+ */
+
+body{text-align:left;}
+#main .linep.toplinep{margin-top:20px;}
+#main .linep{margin-top:0px;height:50px;}
+#main .topP{margin-top:20px;}
+#main .linediv{margin-top:0px;height:50px;}
+#main .deviceinput{position:relative;height:50px;}
+#main .deviceinput label{height:50px;line-height:31px; vertical-align:auto}
+/*#main .deviceinput span{height:31px;line-height:31px;}*/
+#main .deviceinput #typelist{display:none;position:absolute;left:233px;top:21px;height:auto;width:auto;min-width:283px;width:278px;background:#fff;border:1px solid #d9d9d9;}
+#main .deviceinput #typelist li{display:block;float:none;width:100%;margin:0;line-height:20px;}
+#main .deviceinput #typelist li a{padding-left:5px;display:inline-block;width:100%;}
+.lihoverbg{background:#417eb7;color:#fff;}
+.lihoverbg a{color:#fff;}
+.selt{min-width:100px;width:100px;}
+.textselect{width:278px;}
+.textinput{height:30px;}
+
+#devAttributes{margin:-10px auto 10px 107px;width:100%;}
+#devAttributes td{height:50px;}
+.attributeName{width:67px;padding-left:15px;}
+.top{background:url("images/top.png") no-repeat left bottom;}
+.middle{background:url("images/middle.png") no-repeat;}
+.bottom{background:url("images/bottom.png") no-repeat left top;}
+.attributesMsg{width:135px;margin-left:5px;}
+#devAttributes .attributeValue,.editAttributes{margin-left:4px;}

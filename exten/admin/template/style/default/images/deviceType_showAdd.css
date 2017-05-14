@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+/*设备类型*/
+#actionList,#attributeList{
+	width:400px;
+	min-height:20px;
+	height:auto;
+	height:20px;
+	padding:5px 5px 5px 0;
+	margin-top:8px;
+}
+#actionList li,#attributeList li{
+	list-style:none;
+	float:left;
+	padding:5px 10px 5px 0;
+}
+#actionList li input,#attributeList li input{
+	margin-right:5px;
+	vertical-align:middle;
+}
+.listtr{
+	padding-top:20px;
+}
+
+#deviceTypeActionsError,#deviceTypeAttributeError{
+	margin-left:50px;
+}
+
+/*查看详细信息页面*/
+#showInfoTable .formtype{
+	width:90px;
+}
+.submitTd{
+	padding-top:20px;
+}

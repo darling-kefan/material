@@ -1,0 +1,50 @@
+<div id="header">
+	<div id="headerContent">
+		<div class="g-logo">
+			<a href="index.php"><h1>原料中心</h1></a>
+		</div>
+		<div class="g-search">
+			<form onsubmit="return SFE.base.onSubmitSearch(this)" method="get" action="index.php">
+			    <input type="hidden" name="app" value='search'/>
+				<input type="hidden" name="act" value='index'/>
+				<span class="left-sidebar"></span>
+				<input id="searchKeywords" class="search-keyword" type="text" name="keywords" autocomplete="off" value="" tabindex="0" style="color: rgb(153, 153, 153);">
+				<input id="searchSubmit" class="search-btn" type="submit" value="">
+				<span class="right-sidebar"></span>
+				<div id="snKeywordNew" style="display:none;"></div>
+			</form>
+			<div id="ac_results" class="g-ac-results hide" style="display: none;"></div>
+		</div>
+		<div class="g-keywords">
+		    <%{foreach $keywordsArr as $val}%>
+			<%{foreach $val as $item}%>
+			<a href="index.php?app=search&keywords=<%{$item}%>"><%{$item}%></a>&nbsp;&nbsp;
+			<%{/foreach}%>
+			<%{/foreach}%>
+		</div>
+	</div>
+	<div id="menu">
+		<div class="g-main-nav">
+			<ul>
+				<%{foreach $tableclassArr as $val}%>
+					<%{if is_array($val.item)}%>
+				<li class="firstMenu"><a href="javascript:void(0)"><%{$val.class_name}%></a>
+					<dl class="second-menu">
+					    <%{foreach $val.item as $v}%>
+						<dd><a href="index.php?app=default&classid=<%{$v.classid}%>"><%{$v.class_name}%></a></dd>
+						<%{/foreach}%>
+					</dl>
+				</li>
+				<%{else}%>
+				<%{if $basicInfo.classid eq $val.classid}%>
+				<li class="current"><a href="index.php?app=default&classid=<%{$val.classid}%>"><%{$val.class_name}%></a>
+				<%{else}%>
+				<li><a href="index.php?app=default&classid=<%{$val.classid}%>"><%{$val.class_name}%></a>
+				<%{/if}%>
+				<%{/if}%>
+				<%{/foreach}%>
+			</ul>
+		</div>
+	</div>
+</div>
+

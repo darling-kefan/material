@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 授权操作员列表
+ */
+/*
+ul,li{margin:0px;padding:0px; list-style:none}
+li ul{margin-left:10px;}
+#stepnav,#selectobj{text-align:center}
+#stepnav span{display:inline-block;margin:5px;width:120px;text-align:center;border:1px solid #999; background:#CCC;line-height:24px}
+#selectobj span{display:inline-block;margin:5px;width:120px;text-align:center;line-height:24px;}
+#operInfotable tr,#operInfotable th{
+	text-align:center;
+}
+#operInfotable th,#devgrouptable th{
+	height:35px;
+	background:#f4f4f4;
+}
+#operInfotable tr,devgrouptable tr{
+	height:30px;
+}
+#operInfotable td,devgrouptable td{
+	overflow:hidden;
+}
+#operInfotable tfoot tr,devgrouptable tfoot tr{
+	text-align:left;
+}
+#devtreelist{height:410px;}
+#listval div{
+	display:inline-block;
+	margin-left:10px;
+	vertical-align:top
+}
+#listval{
+	overflow-x:auto;
+}
+*/
+table{border:1px solid #d8d8d8;margin:10px auto;}
+table th,table td{height:30px; line-height:30px;padding-left:5px;border-bottom:1px solid #ebebeb}
+table th input,table td input{ vertical-align:middle}
+.delebtn{background:url(images/delebtn.png) no-repeat;width:63px;height:29px;border:none;color:#ffffff;margin-top:10px;}
+.delebtn:hover{background:url(images/delebtn_hover.png) no-repeat;}
+.linepage{width:96%;margin:0 auto;}
+.pagelist{margin-top:10px;float:right;}

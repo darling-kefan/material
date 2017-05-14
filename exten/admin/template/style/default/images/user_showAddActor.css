@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+#progress li{
+	list-style:none;
+	float:left;
+	font-size:12px;
+	width:144px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+.light{
+	background:url(images/arrow2.png) no-repeat;
+}
+.gray{
+	background:url(images/arrow1.png) no-repeat;
+	color:#6a6a6a;
+}
+#addActorTable{
+	clear:both;
+	margin:5px auto;
+	width:600px;
+}
+#progress{
+	text-align:center;
+	margin:10px auto;
+	width:600px;
+}
+#addActorTable td{
+	height:50px;
+}
+#addActorTable td span,#addActorTable td label{
+	color:#ff0000;
+}
+#addActorTable td label{
+	display:block;
+	height:0px;
+}
+#addBtn{
+	text-align:center;
+}
+#main .linep label, #main .linediv label{width:160px;}
+#userDataMsg{width:300px;text-align:left;margin:0 auto;}
+#userDataMsg p{margin-top:3px;}
+
+table{border:1px solid #d8d8d8;margin:20px auto 0 auto}
+table th,table td{height:30px; line-height:30px;padding-left:5px;border-bottom:1px solid #ebebeb}
+table th input,table td input{vertical-align:text-top;margin-right:5px;}
+table td span{cursor:pointer}
+.pagelist{margin-top:10px;float:right;}
+.bluebtn{margin-top:10px;}

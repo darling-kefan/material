@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>数据中心 - Powered By sqtang</title>
+<meta name="author" content="sqtang" />
+<meta name="copyright" content="sqtang" />
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<link href="exten/admin/template/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<style type="text/css">
+*{
+	font: 12px tahoma, Arial, Verdana, sans-serif;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $nav = $("#nav a:not(:last)");
+	var $menu = $("#menu dl");
+	var $menuItem = $("#menu a");
+	
+	$nav.click(function() {
+		var $this = $(this);
+		$nav.removeClass("current");
+		$this.addClass("current");
+		var $currentMenu = $($this.attr("href"));
+		$menu.hide();
+		$currentMenu.show();
+		//$('#iframe').attr('src','?act=welcome');
+		return false;
+	});
+	
+	$menuItem.click(function() {
+		var $this = $(this);
+		$menuItem.removeClass("current");
+		$this.addClass("current");
+	});
+
+});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		if (self != top) {
+			top.location = self.location;
+		};
+	</script>
+	<table class="main">
+		<tr>
+			<th class="logo"><img src="exten/admin/template/images/logo.gif"/></th>
+			<th>
+				<div id="nav" class="nav">
+
+					<ul>
+						
+						<%{foreach $topMenu as $id=>$name }%>
+						<%{if $name@index eq 0}%>
+						<li><a href="#<%{$id}%>" class="current"><%{$name}%></a></li>
+						<%{else}%>
+						<li><a href="#<%{$id}%>"><%{$name}%></a></li>
+						<%{/if}%>
+						<%{/foreach}%>			
+						<li style="display:none">
+							<a href="#" target="_blank"></a>
+						</li>
+					</ul>
+				</div>
+
+				<%{if $uid gt 0}%>
+				<div class="link" style="margin-top:30px;">
+					<strong><%{$uname}%></strong>
+					您好!
+					<a target="iframe" href="?app=user&act=viewEditUser&uid=<%{$uid}%>">[账号设置]</a>
+					<a target="_top" href="?app=exit">[注销]</a>
+				</div>
+				<%{/if}%>
+			</th>
+		</tr>
+		<tr>
+			<td id="menu" class="menu">
+				<%{foreach $leftMenu as $id => $val}%>
+				<%{if $val@index eq 0 }%>
+				<dl id="<%{$id}%>" class="default">
+				<%{else}%>
+				<dl id="<%{$id}%>">
+				<%{/if}%>
+					<dt><%{$val.title}%></dt>
+					<%{foreach $val.items as $item}%>
+					<dd>
+						<a href="<%{$item.url}%>" target="iframe"><%{$item.name}%></a>
+					</dd>
+					<%{/foreach}%>
+				</dl>
+				<%{/foreach}%>
+				
+				
+			</td>
+			<td>
+				<iframe id="iframe" name="iframe" src="?app=default&act=welcome" frameborder="0"></iframe>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ *登陆页面--------login.html
+ */
+#loginForm{
+	width:500px;
+	height:350px;
+	text-align:center;
+}
+#loginForm input{
+	font-family:Verdana, Geneva, sans-serif;
+}
+#loginForm #loginHeader{
+	height:50px;
+	line-height:2;
+}
+#loginForm #loginHeader #firstloginMsg{
+	font-size:12px;
+	color:#f00;
+}
+#loginForm #loginContent{
+	width:400px;
+	margin:0px auto;
+	font-size:14px;
+}
+#loginForm #loginContent tr{
+    height:50px;
+}
+#loginForm #loginContent .formtype{
+	text-align:right;
+	width:100px;
+	padding-bottom:20px;
+}
+#loginForm #loginContent .formelements input[type="text"],#loginForm #loginContent .formelements input[type="password"]{
+	width:230px;
+	height:20px;
+}
+#loginForm #loginContent .formelements #findpw{
+	margin-left:20px;
+}
+#loginForm #loginContent .formelements#randcode input[type="text"]{
+	width:100px;
+}
+#loginForm #loginContent .formelements span{
+	display:block;
+	height:15px;
+	margin-top:5px;
+	color:#F00;
+	font-size:12px;
+}
+#loginForm #loginContent .formelements #pwtext{
+	position:absolute;
+}
+#welcomeMsg #fixfristPw{
+	margin-left:30px;
+}

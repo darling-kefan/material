@@ -1,0 +1,278 @@
+<%{capture name=banner}%><%{foreach from=$basicList.FieldType key=myId item=i}%><option value="<%{$myId}%>"><%{$i}%></option><%{/foreach}%><%{/capture}%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $specificationTable = $("#specificationTable");
+	var $type = $("#type");
+	var $addSpecificationValueButton = $("#addSpecificationValueButton");
+	var $deleteSpecificationValue = $("a.deleteSpecificationValue");
+	var $selectClassify = $("#classifyID");
+	var $quotaholder = $("#quotaholder td").eq(0);
+	var specificationValueIndex = 1;
+	
+	$("input.browserButton").browser();
+
+	//为Select添加事件，当选择其中一项时触发
+	$selectClassify.change(function(){
+		var classifyID = $(this).val();
+		$("#quotaholder").hide();
+		//清空附加条件
+		$("#additionalCondition").html('');
+
+		var additionalCon = '';
+		if (classifyID == 1) {//月度数据
+			additionalCon += "<td> </td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text fieldComment\" value=\"年份/月份\" maxlength=\"300\" disabled=\"disabled\" />";
+			additionalCon += "<input type=\"hidden\" name=\"fieldComment[0]\" value=\"年份/月份\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<select id=\"type\" style=\"width:100px\" disabled=\"disabled\"><option>内置</option></select>";
+			additionalCon += "<input type=\"hidden\" name=\"fieldType[0]\" value=\"VARCHAR\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text unit\" value=\"\" maxlength=\"100\" disabled=\"disabled\" /> ";
+			additionalCon += "<input type=\"hidden\" name=\"unit[0]\" value=\"\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<a href=\"javascript:;\" class=\"deleteSpecificationValue\">[删除]</a>";
+			additionalCon += "</td> ";
+		} else if (classifyID == 2) {//季度数据
+			additionalCon += "<td> </td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text fieldComment\" value=\"年份/季度\" maxlength=\"300\" disabled=\"disabled\" />";
+			additionalCon += "<input type=\"hidden\" name=\"fieldComment[0]\" value=\"年份/季度\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<select id=\"type\" style=\"width:100px\" disabled=\"disabled\"><option>内置</option></select>";
+			additionalCon += "<input type=\"hidden\" name=\"fieldType[0]\" value=\"VARCHAR\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text unit\" value=\"\" maxlength=\"100\" disabled=\"disabled\" /> ";
+			additionalCon += "<input type=\"hidden\" name=\"unit[0]\" value=\"\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<a href=\"javascript:;\" class=\"deleteSpecificationValue\">[删除]</a>";
+			additionalCon += "</td> ";
+		} else if (classifyID == 3) {//年度数据
+			additionalCon += "<td> </td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text fieldComment\" value=\"年份\" maxlength=\"300\" disabled=\"disabled\" />";
+			additionalCon += "<input type=\"hidden\" name=\"fieldComment[0]\" value=\"年份\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<select id=\"type\" style=\"width:100px\" disabled=\"disabled\"><option>内置</option></select>";
+			additionalCon += "<input type=\"hidden\" name=\"fieldType[0]\" value=\"VARCHAR\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text unit\" value=\"\" maxlength=\"100\" disabled=\"disabled\" /> ";
+			additionalCon += "<input type=\"hidden\" name=\"unit[0]\" value=\"\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<a href=\"javascript:;\" class=\"deleteSpecificationValue\">[删除]</a>";
+			additionalCon += "</td> ";
+		} else if (classifyID == 5 || classifyID == 6 || classifyID == 7) {//分省月度数据|分省季度数据|分省年度数据
+			additionalCon += "<td> </td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text fieldComment\" value=\"省份\" maxlength=\"300\" disabled=\"disabled\" />";
+			additionalCon += "<input type=\"hidden\" name=\"fieldComment[0]\" value=\"省份\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<select id=\"type\" style=\"width:100px\" disabled=\"disabled\"><option>内置</option></select>";
+			additionalCon += "<input type=\"hidden\" name=\"fieldType[0]\" value=\"VARCHAR\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text unit\" value=\"\" maxlength=\"100\" disabled=\"disabled\" /> ";
+			additionalCon += "<input type=\"hidden\" name=\"unit[0]\" value=\"\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<a href=\"javascript:;\" class=\"deleteSpecificationValue\">[删除]</a>";
+			additionalCon += "</td> ";
+		} else if (classifyID == 8 || classifyID == 9) {//主要城市月度数据|主要城市年度数据
+			additionalCon += "<td> </td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text fieldComment\" value=\"城市\" maxlength=\"300\" disabled=\"disabled\" />";
+			additionalCon += "<input type=\"hidden\" name=\"fieldComment[0]\" value=\"城市\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<select id=\"type\" style=\"width:100px\" disabled=\"disabled\"><option>内置</option></select>";
+			additionalCon += "<input type=\"hidden\" name=\"fieldType[0]\" value=\"VARCHAR\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<input type=\"text\" class=\"text unit\" value=\"\" maxlength=\"100\" disabled=\"disabled\" /> ";
+			additionalCon += "<input type=\"hidden\" name=\"unit[0]\" value=\"\" /> ";
+			additionalCon += "</td> <td> ";
+			additionalCon += "<a href=\"javascript:;\" class=\"deleteSpecificationValue\">[删除]</a>";
+			additionalCon += "</td> ";
+		}
+
+		$("#additionalCondition").html(additionalCon);
+		/*
+		//异步请求数据
+		$.ajax({
+			url: "admin.php?app=quotaType&act=asyncQuotaClass",
+			type: "POST",
+			data: {id: classifyID},
+			dataType: "json",
+			cache: false,
+			success: function(data) {
+				if (data.type == 1) {
+					$("#quotaholder").show();
+					
+					//var quota = "<select name=\"quotaParentID\"> <option value=\"\">---请选择---</option>";
+					var quota = "<select name=\"quotaParentID\"> ";
+					
+					$.each(data.data, function(key,val){
+						quota = quota + "<option value=\"" + val.qcid + "\">";
+						for (i=1; i<=val.level; i++) {
+							quota = quota + "&nbsp;&nbsp;";
+						}
+						quota = quota + val.qcname + "</option>";
+					});
+					quota = quota + "</select>";
+					$quotaholder.html(quota);
+					
+				}
+			}
+		});
+		*/
+	});
+
+	
+	// 增加表字段
+	$addSpecificationValueButton.click(function() {
+		//包含指标
+		//var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="fieldComment[' + specificationValueIndex + ']" class="text fieldComment" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <select id="type" name="fieldType[' + specificationValueIndex + ']" style="width:100px"><%{$smarty.capture.banner|regex_replace:"/[\/]/":"\/"}%><\/select> <\/span> <\/td> <td> <input type="text" name="unit[' + specificationValueIndex + ']" class="text unit" maxlength="100" \/> <\/td> <td> <input type="text" name="keyWords[' + specificationValueIndex + ']" class="text keyWords" maxlength="200" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';
+		var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="fieldComment[' + specificationValueIndex + ']" class="text fieldComment" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <select id="type" name="fieldType[' + specificationValueIndex + ']" style="width:100px"><%{$smarty.capture.banner|regex_replace:"/[\/]/":"\/"}%><\/select> <\/span> <\/td> <td> <input type="text" name="unit[' + specificationValueIndex + ']" class="text unit" maxlength="100" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';
+		$specificationTable.append(trHtml).find("input.browserButton:last").browser();
+		specificationValueIndex ++;
+	});
+
+	// 删除表字段
+	$deleteSpecificationValue.live("click", function() {
+		var $this = $(this);
+		if ($specificationTable.find("tr.specificationValueTr").size() <= 1) {
+			$.message("warn", "必须至少保留一个字段");
+		} else {
+			$this.closest("tr").remove();
+		}
+	});
+
+	$.validator.addClassRules({
+		fieldComment: {
+			//digits: true
+			required: true
+		}
+	});
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			comment: "required",
+			parentId: "required"
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<form id="inputForm" action="admin.php?app=materialTable&act=createTable" method="post">
+		<table id="specificationTable" class="input">
+			<tr class="titleTr">
+				<th>
+					<span class="requiredField">*</span>数据表名:
+				</th>
+				<td colspan="7">
+					<input type="text" name="comment" class="text" value="" maxlength="200" />&nbsp;&nbsp;(如：中国2011年城市排水和污水处理统计)
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="requiredField">*</span>所属分类:
+				</th>
+				<td colspan="7">
+					<select name="parentId" id="classifyID">
+						<option value="">选择所属分类</option>
+						<%{section name=classinfo loop=$classList}%>
+							<option value="<%{$classList[classinfo].classid}%>" <%{if $classList[classinfo].classid eq 4}%>disabled="disabled"<%{/if}%>>
+									<%{section name=classLevel loop=$classList[classinfo].level}%>
+										&nbsp;&nbsp;
+									<%{/section}%>
+									<%{$classList[classinfo].className}%>
+							</option>
+						<%{/section}%>
+					</select>
+					&nbsp;&nbsp;<span style="color:red">(请谨慎选择所属分类，表创建完后此项将不能更改)</span>
+				</td>
+			</tr>
+			<!-- 
+			<tr id="quotaholder" style="display:none">
+				<th>
+					<span class="requiredField">*</span>所属指标分类:
+				</th>
+				<td colspan="7">
+					
+				</td>
+			</tr>
+			 -->
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td colspan="6">
+					<a href="javascript:;" id="addSpecificationValueButton" class="button">增加字段</a>
+				</td>
+			</tr>
+			<tr class="title">
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					列名
+				</td>
+				<td>
+					字段类型
+				</td>
+				<td>
+					计量单位
+				</td>
+				<td>
+					删除
+				</td>
+			</tr>
+				
+				
+				<tr id="additionalCondition" class="specificationValueTr">
+					<td>
+						
+					</td>
+					<td>
+						<input type="text" name="fieldComment[0]" class="text fieldComment" value="" maxlength="300" />
+					</td>
+					<td>
+						<select id="type" name="fieldType[0]" style="width:100px">
+							<%{foreach from=$basicList.FieldType key=myId item=i}%>
+							<option value="<%{$myId}%>"><%{$i}%></option>
+							<%{/foreach}%>
+						</select>
+					</td>
+					<td>
+						<input type="text" name="unit[0]" class="text unit" value="" maxlength="100" />
+					</td>
+					<td>
+							<a href="javascript:;" class="deleteSpecificationValue">[删除]</a>
+					</td>
+				</tr>
+				
+		</table>
+		<table class="input">
+			
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td colspan="7">
+					<input type="submit" class="button" value="确&nbsp;&nbsp;定" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=getTablesList'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

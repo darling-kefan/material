@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ *新建型号
+ */ 
+#deviceversion_add table td{
+	height:50px;
+}
+#deviceversion_add table .formtype{
+	width:101px;
+}
+#deviceversion_add table #addv_file p{
+	color:#F00;
+	font-size:12px;
+	line-height:18px;
+	margin:5px 0;
+}
+#deviceversion_add table #addv_file label{
+	display:inline-block;
+}
+#describeArea{
+	width:282px;
+	height:77px;
+	font-size:12px;
+}
+
+/*修改页面*/
+.showArea{
+	width:272px;
+	height:75px;
+	border:1px solid #D5D5D5;
+	padding:3px 0 0 3px;
+	color:#6c6c6c;
+}

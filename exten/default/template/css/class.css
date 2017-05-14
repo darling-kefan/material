@@ -1,0 +1,413 @@
+.main-wraper{
+	width:100%; 
+	float:left; 
+	/*background: url("../img/bg.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.main{
+	width:980px; 
+	margin:0 auto; 
+}
+.main .relevance {
+	width: 978px;
+	height:30px;
+	background-color:#F5F5F5;
+	border-radius: 5px 5px 0 0;
+	border-top:1px solid #D4D4D4;
+	border-left:1px solid #D4D4D4;
+	border-right:1px solid #D4D4D4;
+	border-bottom:1px solid #D4D4D4;
+}
+.main .relevance ul{
+	width:978px;
+}
+.main .relevance li{
+	float:left;
+	line-height:30px
+}
+.main .relevance li.refresh{
+	width:863px;
+	padding-left:15px;
+	text-align:center;
+	float:left;
+	text-align:left;
+	font-size:14px;
+	font-weight:bold
+}
+.main .relevance li.graphicsBtn{
+	width:100px;
+	text-align:center;
+	color:#0066FF;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+	position:relative
+}
+.main .relevance li.graphicsBtn dl.graphicsBtn-layer{
+	width:98px;
+	height:60px;
+	border-left:1px solid #D4D4D4;
+	border-right:1px solid #D4D4D4;
+	border-bottom:1px solid #D4D4D4;
+	position:absolute;
+	z-index:10;
+	background-color:#F5F5F5;
+	border-radius: 0 0 5px 5px;
+}
+.main .relevance li.graphicsBtn dl.graphicsBtn-layer dd{
+	color:#333333;
+	text-align:left;
+	padding-left:10px;
+	width:88px;
+	height:30px;
+}
+.main .relevance li.graphicsBtn dl.graphicsBtn-layer dd:hover{
+	background-color:#FF9900
+}
+
+.main .relevance li select{
+	color:#666
+}
+.main .mainContainer {
+	width: 968px;
+	border-left:1px solid #D4D4D4;
+	border-right:1px solid #D4D4D4;
+	border-bottom:1px solid #D4D4D4;
+	border-radius: 0 0 5px 5px;
+	padding:10px 5px 10px 5px;
+}
+.main .mainContainer .tableContainer {
+	width:968px;
+	overflow:auto
+}
+.main .mainContainer .tableContainer table{
+	width:100%;
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+tbody, tr, td, th{
+	padding:0;
+	margin:0
+}
+.main .mainContainer .tableContainer table th{
+	background-color: #F5F5F5;
+	border: 1px solid #E9E9E9;
+	line-height: 30px;
+	height: 30px;
+	padding: 0 10px;
+	text-align: left;
+	white-space: nowrap;
+	color:#333333
+}
+.main .mainContainer .tableContainer table td{
+	border: 1px solid #E9E9E9;
+	line-height: 30px;
+	height: 30px;
+	padding: 0 10px;
+	white-space: nowrap;
+	color:#777777
+}
+div.pagination {
+    float: right;
+    height: 20px;
+    padding: 10px 0;
+}
+div.pagination a, div.pagination span {
+    display: inline;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 3px;
+    outline: medium none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+div.pagination a {
+    border: 1px solid #CCCCCC;
+    padding: 0 5px;
+}
+div.pagination a:hover {
+    border: 1px solid #FD6D01;
+    text-decoration: none;
+}
+div.pagination a.previousPage {
+    background: url("../img/list.gif") no-repeat scroll 0 -180px rgba(0, 0, 0, 0);
+    padding: 0;
+    width: 18px;
+}
+div.pagination span.previousPage {
+    background: url("../img/list.gif") no-repeat scroll -30px -180px rgba(0, 0, 0, 0);
+    border: 1px solid #CCCCCC;
+    cursor: default;
+    width: 18px;
+}
+div.pagination a.nextPage {
+    background: url("../img/list.gif") no-repeat scroll 0 -210px rgba(0, 0, 0, 0);
+    padding: 0;
+    width: 18px;
+}
+div.pagination span.nextPage {
+    background: url("../img/list.gif") no-repeat scroll -30px -210px rgba(0, 0, 0, 0);
+    border: 1px solid #CCCCCC;
+    cursor: default;
+    width: 18px;
+}
+div.pagination a.firstPage {
+    background: url("../img/list.gif") no-repeat scroll -60px -180px rgba(0, 0, 0, 0);
+    padding: 0;
+    width: 18px;
+}
+div.pagination span.firstPage {
+    background: url("../img/list.gif") no-repeat scroll -90px -180px rgba(0, 0, 0, 0);
+    border: 1px solid #CCCCCC;
+    cursor: default;
+    width: 18px;
+}
+div.pagination a.lastPage {
+    background: url("../img/list.gif") no-repeat scroll -60px -210px rgba(0, 0, 0, 0);
+    padding: 0;
+    width: 18px;
+}
+div.pagination span.lastPage {
+    background: url("../img/list.gif") no-repeat scroll -90px -210px rgba(0, 0, 0, 0);
+    border: 1px solid #CCCCCC;
+    cursor: default;
+    width: 18px;
+}
+div.pagination .currentPage {
+    background-color: #FFEDE1;
+    border: 1px solid #FD6D01;
+    color: #FD6D01 !important;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 5px;
+}
+div.pagination .pageBreak {
+    color: #3366CC;
+    cursor: default;
+    padding: 0 5px;
+}
+div.pagination .pageSkip {
+    color: #666666;
+    padding: 0 3px;
+    vertical-align: middle;
+}
+div.pagination .pageSkip input {
+    border: 1px solid #CCCCCC;
+    height: 18px;
+    ime-mode: disabled;
+    line-height: 18px;
+    margin: 0 5px;
+    padding: 0;
+    text-align: center;
+    vertical-align: top;
+    width: 18px;
+}
+div.pagination .pageSkip button {
+    background: url("../img/list.gif") no-repeat scroll -120px -210px rgba(0, 0, 0, 0);
+    border: medium none;
+    cursor: pointer;
+    height: 20px;
+    margin: 0 0 0 5px;
+    outline: medium none;
+    vertical-align: top;
+    width: 20px;
+}
+
+
+
+
+
+
+
+.shapeSelect th {
+	width: 156px;
+	line-height: 25px;
+	padding: 15px 0px 10px 0px;
+	text-align: center;
+	font-weight: normal;
+	color: #333333;
+	background-color: #f8fbff;
+}
+
+#showShape {
+    background: linear-gradient(#F6F6F6 0px, #FFFFFF 50px) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    height: 450px;
+    margin: 15px auto 30px;
+    padding: 20px 15px 15px;
+    width: 1200px;
+}
+
+#topTitle {
+	height: 30px; 
+	line-height:30px; 
+	width:1100px; 
+	margin:0 auto; 
+	text-align:center; 
+	font-size:14px; 
+	font-weight:bold; 
+	color:black;
+	float:left
+}
+#labelholder{
+	width:1110px;
+	margin-left:40px;
+	border:2px solid #f1f1f1;
+	padding:3px;
+	float:left
+}
+#labelholder li{
+	list-style:none;
+	width:157px;
+	height:30px;
+	float:left;
+	overflow:hidden
+}
+#flotholder{
+	height:300px; 
+	width:1170px; 
+	margin:0 auto; 
+	float:left
+}
+.promotion {
+	color: #cccccc;
+}
+
+/*Table选择样式(折线图)*/
+.curveTable{
+	width:470px;
+	background-color: #FFFFFF;
+	z-index:103;
+	height:200px;
+	overflow: auto
+}
+.curveTable table{
+	margin:10px;
+	width:450px;
+}
+.curveTable table th{
+	background-color: #F5F5F5;
+	color: #333333;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	text-align: left;
+	white-space: nowrap;
+}
+.curveTable table td{
+	color: #333333;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+	text-align: left;
+	white-space: nowrap;
+	border-top: 1px solid #E9E9E9;
+}
+.flotArea{
+	width:966px;
+	height:380px;
+	box-sizing: border-box;
+	padding: 10px 0 15px 0;
+	margin: 0 auto 15px auto;
+	border: 1px solid #ddd;
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+#titleholder{
+	width:966px;
+	height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center
+}
+#flotholder {
+	width:966px;
+	height:280px;
+	margin-bottom:10px;
+}
+#buttonholder{
+	width:900px;
+	height:30px;
+	overflow:auto;
+	border: 2px solid #F1F1F1;
+	padding: 10px;
+	margin: 0 auto;
+}
+#buttonholder ul{
+	width:900px;
+	height: auto;
+}
+#buttonholder li{
+	height:25px;
+	padding-right:10px;
+	float:left;
+}
+
+
+.left_selection {
+    left: -215px;
+    overflow: hidden;
+    position: fixed;
+    top: 190px;
+    width: 225px;
+}
+.left_selection_main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D4D4D4;
+    min-height: 300px;
+    padding-bottom: 10px;
+    width: 184px;
+}
+.left_selection_main .title {
+    background: none repeat scroll 0 0 #F5F5F5;
+	border-bottom: 1px solid #D4D4D4;
+    height: 35px;
+    line-height: 35px;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold
+}
+.left_selection_main a {
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin: 10px auto 0;
+    padding-left: 5%;
+    padding-left: 5%;
+    width: 90%;
+}
+.left_selection_main a.selected, .left_selection_main a:hover {
+    color: #0066FF;
+    font-weight: 100;
+    padding-left: 5%;
+    padding-left: 5%;
+    width: 90%;
+    text-decoration: underline
+}
+.left_selection_button {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-color: #D4D4D4 #D4D4D4 #D4D4D4 #D4D4D4;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    height: 55px;
+    left: 185px;
+    line-height: 16px;
+    padding: 12px 0 0 10px;
+    position: absolute;
+    top: 70px;
+    width: 24px;
+}

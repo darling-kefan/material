@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>选择要导入的Excel内容</title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<style type="text/css">
+.moreTable th {
+	width: 80px;
+	line-height: 25px;
+	padding: 5px 10px 5px 0px;
+	text-align: right;
+	font-weight: normal;
+	color: #333333;
+	background-color: #f8fbff;
+}
+
+.moreTable td {
+	line-height: 25px;
+	padding: 5px;
+	color: #666666;
+}
+
+.promotion {
+	color: #cccccc;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $listForm = $("#listForm");
+
+});
+</script>
+</head>
+<body>
+	<form id="form" action="admin.php?app=materialTable&act=importExcel" method="POST">
+		<input type="hidden" id="tableID" name="tableID" value="<%{$tableID}%>" />
+		<input type="hidden" id="tmpFile" name="tmpFile" value="<%{$tmpFile}%>" />
+		<table id="listTable" class="list">
+			<tr>
+				<td colspan="100" style="height:60px">
+					<ul style="float:right">
+						<li style="width:30px; float:left; height:35px; line-height:25px; font-size:14px; color:white; text-align:center; font-weight:bold; background-image:url(exten/admin/template/images/pubflow_off.gif)">1</li>
+						<li style="float:left; padding-left:15px; font-size:14px; color:#BCBCBC; line-height:28px">选择Excel文件</li>
+						<li style="width:11px; height:21px; float:left; margin:5px 20px 0px 20px; background-image:url(exten/admin/template/images/pub_arrow.gif)"></li>
+						<li style="width:30px; float:left; height:35px; line-height:25px; font-size:14px; color:white; text-align:center; font-weight:bold; background-image:url(exten/admin/template/images/pubflow_on.gif)">2</li>
+						<li style="float:left; padding-left:15px; font-size:14px; color:#4484DB; line-height:28px">选择非标题数据</li>
+						<li style="width:11px; height:21px; float:left; margin:5px 20px 0px 20px; background-image:url(exten/admin/template/images/pub_arrow.gif)"></li>
+						<li style="width:30px; float:left; height:35px; line-height:25px; font-size:14px; color:white; text-align:center; font-weight:bold; background-image:url(exten/admin/template/images/pubflow_off.gif)">3</li>
+						<li style="float:left; padding-left:15px; font-size:14px; color:#BCBCBC; line-height:28px">点击确定，导入成功</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th class="check">
+					<input type="checkbox" id="selectAll" />
+				</th>
+				<%{foreach from=$bannerArr item=cell_id}%>
+				<th>
+					<a href="javascript:;" name="<%{$cell_id}%>"><%{$cell_id}%></a>
+				</th>
+				<%{/foreach}%>
+			</tr>
+				<%{foreach name=allData from=$excelData key=rowId item=rowInfo}%>
+				<tr>
+					<td>
+						<input type="checkbox" name="ids[]" value="<%{$rowId}%>" />
+					</td>
+					<%{foreach name=oneRow from=$rowInfo key=cellId item=cellInfo}%>
+					<td>
+						<%{$cellInfo}%>
+					</td>
+					<%{/foreach}%>
+				</tr>
+				<%{/foreach}%>
+		</table>
+		
+		<table class="input">
+			</tr>
+				<tr>
+					<th>
+						&nbsp;
+					</th>
+					<td>
+						
+					</td>
+			</tr>
+			</tr>
+				<tr>
+					<th>
+						&nbsp;
+					</th>
+					<td>
+						<span class="tips">请选择需要导入的数据</span>
+					</td>
+			</tr>
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					<input type="submit" class="button" value="确&nbsp;&nbsp;定" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=viewImportExcel&tableID=<%{$tableID}%>'" />
+				</td>
+			</tr>
+			</tr>
+				<tr>
+					<th>
+						&nbsp;
+					</th>
+					<td>
+						
+					</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ *公共样式
+ */
+body{width:100%;font-family:宋体;font-size:12px;text-align:center;color:#525252;background-color:transparent}
+body,div,ul,li,span,label,p,text,input,select{margin:0px;padding:0px;font-size:12px;}
+a{text-decoration:none;color:#525252;}
+ul,li{list-style:none}
+em{color:red; font-style:normal}
+.left{float:left}
+.right{float:right}
+.alignTop{ vertical-align:top;}
+.txt{width:240px;height:21px;padding-left:2px;line-height:20px;font-size:12px; vertical-align:middle;font-family:宋体;border:1px solid gray;}
+.selt{line-height:21px;padding:2px;font-size:12px;vertical-align:middle;font-family:宋体;}
+.error{color:red;}
+.formelements{text-align:left;}
+.formtype{text-align:left;padding-right:20px;width:120px;padding-left:107px;}
+.formelements label{font-size:12px;color:#ff0000}
+.textinput{width:278px;height:30px;border:1px solid #d9d9d9;line-height:30px;padding-left:5px;color:#525252}
+.textselect{width:278px;border:1px solid #d9d9d9;padding:3px 0;color:#525252;height:30px;padding:5px 0;line-height:30px;font-size:12px;}
+.main{width:760px;margin:0 13px;}
+.main_header{background:url("images/line.png") repeat-x scroll center bottom transparent;margin:0px;height:48px;line-height:63px; vertical-align:middle;margin:0 auto;}
+.main_header span{margin-left:5px;font-weight:bold}
+.main_header input[type="button"]{float:right;margin-top:7px;margin-right:5px;}
+.lineLink{text-decoration:underline;cursor:pointer;color:#236aad;}
+.vertical{ vertical-align:middle}
+table{font-size:12px;}
+.tdpadding{padding-left:10px;}
+.tdpadding input{margin-right:5px;vertical-align:text-top;}
+#coverlayer{width:100%;height:100%;background:#000000;opacity:0.2; position:absolute;z-index:2000;}
+.actionForm{margin-bottom:20px;}
+
+.btn{background:url(images/btn.jpg) no-repeat;width:71px;height:28px;border:none;cursor:pointer;font-size:12px;margin-top:20px;}
+.btn:hover{background:url(images/btn_hover.jpg) no-repeat;}
+.btnmax{background:url(images/btnmax.png) no-repeat;width:120px;height:28px;border:none;cursor:pointer;font-size:12px;}
+.btnmax:hover{background:url(images/btnmax_hover.png) no-repeat;}
+.headerbtn{background:url(images/headerbtn.png) no-repeat;width:88px;height:30px;border:none;cursor:pointer;color:#fff;float:right;line-height:30px;margin-top:13px;text-align:center;}
+.headerbtn:hover{background:url(images/headerbtn_hover.png) no-repeat;}
+.longBtn{background:url(images/longBtn.png) no-repeat;width:122px;height:28px;border:none;cursor:pointer;font-size:12px;}
+.longBtn:hover{background:url(images/longBtn_hover.png) no-repeat;}
+.bluebtn{background:url(images/bluebtn.png) no-repeat;width:63px;height:29px;border:none;cursor:pointer;color:#ffffff;}
+.bluebtn:hover{background:url(images/bluebtn_hover.png) no-repeat;}
+.btnmargin{margin:0 30px;margin-top:20px;}
+.red{color:#ff0000;}
+.graycolor{color:#ababab;}
+.viewPageLeftBtn{display:inline-block;width:120px;text-align:left;line-height:30px;margin-left:107px;}
+
+.viewDetail:hover{ text-decoration:underline;color:#2e6ea9; cursor:pointer}
+.blueUnderLine{margin-left:15px;text-decoration:underline;color:#2e6ea9; cursor:pointer}
+.textLeft{text-align:left;}
+.textCenter{text-align:center;}
+#numStr{margin-top:10px;}
+#numStr span{color:#137DDD;padding:0 2px;}
+/*判断输入框信息*/
+.okMsg{background:url(images/ok.png) no-repeat;width:12px;height:12px;display:inline-block;}
+.errorMsg{ color:#ff0000;font-size:12px;}
+
+.devTree{display:inline-block; float:none; vertical-align:top;width:150px; height:200px; margin:10px; border:1px solid #ccc; overflow:auto}
+
+/*箭头导航*/
+#stepnav{margin:10px auto;line-height:2.5; text-align:center}
+.arrowBlue{background:url("images/arrow_blue.png") no-repeat;width:144px;height:30px;color:#fff;display:inline-block;text-align:center;}
+.arrowGray{background:url("images/arrow_gray.png") no-repeat;width:144px;height:30px;color:#5d5d5d;display:inline-block;text-align:center;}
+
+/*列表分页样式*/
+.pointer{cursor:pointer;}
+.page_num{display:inline-block;width:20px;height:20px;background:url(images/pagenum.png) no-repeat;border:none;text-align:center;line-height:20px;}
+.page_cur{display:inline-block;width:20px;height:20px;background:url(images/pagecur.png) no-repeat;border:none;text-align:center;line-height:20px;color:#fff}
+
+/*
+ *系统页面
+ */
+#container{width:100%;}
+#header{background:#F2F2F2;}
+#breadcrumbs{background:url(images/breadcrumbs_back.png) repeat-x;height:44px;line-height:48px;}
+.center{width:960px;margin:0 auto; text-align:left;overflow:hidden}
+#footer{clear:both; text-align:center;margin:10px auto;}
+#exithref{margin-right:15px;}
+/*
+ *头部
+ */
+#head{height:71px;overflow:hidden;}
+#logo{width:267px;vertical-align:top;height:70px;float:left;background:url("images/logo.png") no-repeat scroll center bottom transparent;margin-top:-4px;}
+#navbar{float:left;margin-top:41px;width:693px;height:30px;background:url(images/navbar_back.png) no-repeat;}
+#navbar ul li{float:left;width:99px;height:30px; line-height:30px; text-align:center; cursor:pointer}
+#navbar ul li a{color:#000;padding:10px;}
+#navbar .selected{background:url(images/navbar_selected.png) no-repeat;color:#fff;font-weight:600;margin-left:-2px;}
+#navbar .selected a{color:#fff;padding:10px;}
+
+/*
+ *中间内容
+ */
+#content .leftspan,#content .rightspan{min-height:500px;height:auto !important; height:500px; overflow:visible;}
+#content .leftspan{width:174px;background:url(images/leftspan_back.png)}
+.leftspan ul li label{display:inline-block;margin-left:16px;height:32px; line-height:31px;}
+.leftspan ul li label img{display:inline-block;margin-left:5px; vertical-align:middle;}
+.secondchild{padding-left:28px;height:32px; line-height:31px;}
+.leftspan ul li label span{ vertical-align:middle; display:inline-block;height:31px;line-height:31px;}
+.leftspan ul li label span img{width:13px;height:13px; margin-top:9px}
+.leftspan .leftspantype_btn{line-height:31px;width:171px;margin-top:18px;background:url(images/leftspan_type_back.png) repeat-x;color:#333;font-weight:600;}
+.leftspan .leftspanchild{line-height:24px;color:#fff; font-weight:normal;}
+.leftspan .leftspanchild a{color:#add4f8; font-weight:normal}
+.leftspan .selected .secondchild a{color:#add4f8;}
+.leftspan .leftspanchild a:hover{color:#fff; font-weight:bold;}
+.leftspan .selected{background:url(images/leftselected_back.png) no-repeat}
+.leftspan .selected a{color:#fff}
+#content .rightspan{width:786px;background:#F2F2F2;}
+.toplistbar{margin-top:5px;}
+
+#main{width:760px;margin:0 auto;}
+#main .linep{height:30px;line-height:30px;margin-top:20px;}
+#main .title{border-bottom:1px solid #ccc}
+#main .title span{margin-left:25px;font-weight:600}
+#main .linep label,#main .linediv label{display:inline-block;width:120px;text-align:left;line-height:30px;margin-left:107px;vertical-align:middle;}
+#main .linediv{height:75px;margin-top:20px}
+#main .linediv label{height:75px;vertical-align:top;line-height:75px}
+#main .linediv #typelist{display:inline-block;height:75px;width:360px;}
+#main .linediv #typelist span{float:left;height:75px;line-height:75px;padding-left:2px;}
+#main .linediv ul{float:left;height:75px;width:360px;overflow:auto;border:0px solid #CCC}
+#main .linediv ul li{display:inline-block;float:left;width:110px;overflow:hidden;height:22px;margin:2px;}
+#main .linediv ul li input{vertical-align:middle;margin-right:5px;}
+
+/*弹出层iframe样式*/
+#coverlayer{width:100%;height:100%;background:#000000;opacity:0.1;filter:Alpha(opacity=10); position:absolute;z-index:2000;top:0;left:0;}
+#titlediv{background:#417eb7;height:37px;color:#ffffff;float:left;}
+#title{float:left;font-weight:bold; line-height:37px;}
+#closebtn{float:right;margin-top:8px; cursor:pointer}
+#framecontent{border-left:1px solid #d5d5d5;border-right:1px solid #d5d5d5;background:#f3f3f3;}
+
+.dialogtopbg{height:37px;width:12px;}
+.dialogbottombg{height:10px;width:10px;}
+#topleft{background:url("images/dialog_lt.png") no-repeat;}
+#topright{background:url("images/dialog_rt.png") no-repeat;}
+#bottomleft{background:url("images/dialog_lb.png") no-repeat;}
+#bottomright{background:url("images/dialog_rb.png") no-repeat;}
+.bottombg{height:10px;background:url("images/dialogbottom_bg.png") repeat-x;}
+
+.iframebox{background:#f3f3f3;border-left:#d9d9d9;border-right:#d9d9d9;}
+
+/*
+ *新建用户——user_add.html
+ *新建厂商——deviceCompany_showAdd.tpl.htm
+ *新建型号——deviceVersion_showAdd.tpl.htm
+ *新建设备类别——
+ *新建设备——device_showAdd.tpl.htm
+ *新增网关——gateway_showAdd.tpl.htm
+ *修改用户基本信息
+ */
+.formtype .red{padding-right:5px;}
+#user_add .formelements label, #factory_add .formelements label,#deviceversion_add .formelements label,#devicecategory_add .formelements label,#device_add .formelements label,#deviceType .formelements label,#mac_add .formelements label{
+	color:#F00;
+	display:inline-block;
+	margin-left:10px;
+	height:12px;
+}
+.submsg{ /*错误提示信息*/margin-bottom:10px; display:block;height:10px;color:#ff0000;}
+#user_add,#factory_add,#deviceversion_add,#devicecategory_add,#device_add,#userMsgUpdate,#passwordUpdate,#addApper{
+	width:760px;
+	margin:0 13px;
+}
+#user_add table,#factory_add table,#deviceversion_add table,#devicecategory_add table,#device_add table,#deviceType table,#mac_add table,#passwordUpdate table,#addApper table,#type_add table{
+	width:100%;
+	margin:20px auto;
+}
+#user_add table td,#factory_add table td,#devicecategory_add table td,#device_add table td,#deviceType table td,#mac_add table td,#passwordUpdate table td,#addApper table td{
+	height:50px;
+}
+#usertype_group li span
+{
+	color:#000;
+}
+.submitTd{ text-align:center;}
+
+/*此部分为jquery UI 部分相关样式*/
+.ui-widget-header{ background:##236AAD; color:#fff; background-image:none}
+.ui-widget-content{ background:#fff; }
+/*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{ background:url(images/graybtn.png) no-repeat; width:77px; height:32px; border:none; color:#000; font-weight:normal;}
+.ui-dialog-buttonset button:hover{  background:url(images/graybtn_hover.png) no-repeat; width:77px; height:32px; }*/
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{ text-align:center; float:none;}
+.ui-dialog .ui-dialog-content{ overflow:hidden;display:inline-block;padding:20px 0;}
+.ui-dialog .ui-dialog-buttonpane{border:0;}
+.ui-dialog{padding:0;text-align:center}
+.ui-widget-header{border:none;}
+.ui-widget-header{border-bottom-right-radius:0;border-bottom-left-radius:0;border-top-right-radius:0;border-top-left-radius:0;}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{float:none;text-align:center;}
+.ui-dialog .ui-dialog-buttonpane button{margin:0 10px;}

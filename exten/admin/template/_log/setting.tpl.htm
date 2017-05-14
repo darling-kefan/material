@@ -1,0 +1,19 @@
+<script charset="utf-8" src="plugin/kindedit/kindeditor.js"></script>
+<script charset="utf-8" src="plugin/kindedit/lang/zh_CN.js"></script>
+<script src="exten/admin/template/js/sys_setting.js"></script>
+<div id="main">
+	<p class="linep title"><span>系统配置</span></p>
+    <form action="?app=setting&act=update" method="post" onSubmit="return updateInfo()">
+        <p class="linep">
+            <label style="width:87px">系统名称：</label> <input id="textTitle" name="Title" type="text" class="textinput" value="<%{$_Setting.Title}%>" />
+        </p>
+        <div class="linediv" style="height:306px;">
+            <label style="height:306px;line-height:306px;width:87px">系统页脚：</label>
+            <span style="display: inline-block;height: 306px;width: 550px;"><textarea id="editor_id" name="Footer" style="width:500px;height:200px;display:none"><%{$_Setting.Footer}%></textarea></span>
+        </div>
+        <p class="linep">
+            <label style="width:87px">&nbsp;</label> <input type="submit" value=" 确定 " class="btn" /> <input type="reset" value=" 取 消 " class="btn" />
+        </p>
+    </form>
+</div>
+

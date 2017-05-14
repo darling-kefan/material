@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>登陆日志 - Powered By sqtang</title>
+<meta name="author" content="sqtang" />
+<meta name="copyright" content="sqtang" />
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		日志管理 &raquo; 登陆日志 <span>(共<span id="pageTotal">1</span>条记录)</span>
+	</div>
+	<form id="listForm" action="list.jhtml" method="get">
+		<div class="bar">
+			<div class="buttonWrap">
+				<a href="javascript:;" id="deleteButton" class="iconButton disabled">
+					<span class="deleteIcon">&nbsp;</span>删除
+				</a>
+				<a href="javascript:;" id="refreshButton" class="iconButton">
+					<span class="refreshIcon">&nbsp;</span>刷新
+				</a>
+				<div class="menuWrap">
+					<a href="javascript:;" id="pageSizeSelect" class="button">
+						每页显示<span class="arrow">&nbsp;</span>
+					</a>
+					<div class="popupMenu">
+						<ul id="pageSizeOption">
+							<li>
+								<a href="javascript:;" val="10">10</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="current" val="20">20</a>
+							</li>
+							<li>
+								<a href="javascript:;" val="50">50</a>
+							</li>
+							<li>
+								<a href="javascript:;" val="100">100</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="menuWrap">
+				<div class="search">
+					<span id="searchPropertySelect" class="arrow">&nbsp;</span>
+					<input type="text" id="searchValue" name="searchValue" value="" maxlength="200" />
+					<button type="submit">&nbsp;</button>
+				</div>
+				<div class="popupMenu">
+					<ul id="searchPropertyOption">
+						<li>
+							<a href="javascript:;" val="username">用户名</a>
+						</li>
+						<li>
+							<a href="javascript:;" val="name">姓名</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<table id="listTable" class="list">
+			<tr>
+				<th class="check">
+					<input type="checkbox" id="selectAll" />
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="username">用户名</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="name">姓名</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="name">角色</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="loginDate">日期</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="loginIp">IP</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="createDate">事件</a>
+				</th>
+				<th>
+					<span>操作</span>
+				</th>
+			</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="ids" value="1" />
+					</td>
+					<td>
+						admin
+					</td>
+					<td>
+						admin
+					</td>
+					<td>
+						管理员
+					</td>
+					<td>
+							<span title="2013-08-19 16:49:19">2013-08-19</span>
+					</td>
+					<td>
+						-
+					</td>
+					<td>
+							<span class="green">登陆</span>
+					</td>
+					<td>
+						<a href="javascript:;">[删除]</a>
+					</td>
+				</tr>
+		</table>
+<input type="hidden" id="pageSize" name="pageSize" value="20" />
+<input type="hidden" id="searchProperty" name="searchProperty" value="" />
+<input type="hidden" id="orderProperty" name="orderProperty" value="" />
+<input type="hidden" id="orderDirection" name="orderDirection" value="" />
+	<div class="pagination">
+			<span class="firstPage">&nbsp;</span>
+			<span class="previousPage">&nbsp;</span>
+				<span class="currentPage">1</span>
+				<a href="javascript: $.pageSkip(2);">2</a>
+				<a href="javascript: $.pageSkip(3);">3</a>
+			<a class="nextPage" href="javascript: $.pageSkip(2);">&nbsp;</a>
+			<a class="lastPage" href="javascript: $.pageSkip(4);">&nbsp;</a>
+		<span class="pageSkip">
+			共4页 到第<input id="pageNumber" name="pageNumber" value="1" maxlength="9" onpaste="return false;" />页<button type="submit">&nbsp;</button>
+		</span>
+	</div>
+	</form>
+</body>
+</html>

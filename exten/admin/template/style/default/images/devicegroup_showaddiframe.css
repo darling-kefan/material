@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+body{text-align:left}
+ul,li{margin:0px;padding:0px; list-style:none;line-height:24px}
+li{display:block}
+li label{width:100px;display:inline-block;text-align:right}
+.title{ line-height:30px;padding-left:5px;border-bottom:1px solid #a6a6a6}
+.err{color:red;}
+#li_parentDG{display:block}
+#devicesPosition{display:inline-block;}
+#havePosition,#noPosition{vertical-align:top;width:180px;height:150px;overflow:auto}
+#havePosition div,#noPosition div{margin:2px}
+#havePosition div input{ vertical-align:middle}
+#info{position:absolute;top:0px;z-index:1000}

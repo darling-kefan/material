@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $delete = $("#listTable a.delete");
+	
+	// 删除
+	$delete.click(function() {
+		var $this = $(this);
+		$.dialog({
+			type: "warn",
+			content: "您确定要删除吗？",
+			onOk: function() {
+				$.ajax({
+					url: "admin.php?app=quotaType&act=deleteQuotaType",
+					type: "POST",
+					data: {id: $this.attr("val")},
+					dataType: "json",
+					cache: false,
+					success: function(message) {
+						$.message(message);
+						if (message.type == "success") {
+							$this.closest("tr").remove();
+						}
+					}
+				});
+			}
+		});
+		return false;
+	});
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<div class="bar">
+		<%{foreach name=topbutton item=button from=$topBottons }%>
+		<a href="<%{$button.url}%>" class="iconButton">
+			<span class="addIcon">&nbsp;</span><%{$button.name}%>
+		</a>
+		<%{/foreach}%>
+		<a href="javascript:;" id="refreshButton" class="iconButton">
+			<span class="refreshIcon">&nbsp;</span>刷新
+		</a>
+	</div>
+	<table id="listTable" class="list">
+		<tr>
+			<th>
+				<span>分类名称</span>
+			</th>
+			<th>
+				<span>排序</span>
+			</th>
+			<th>
+				<span>操作</span>
+			</th>
+		</tr>
+			<%{foreach name=allQuotaClasses from=$quotaClasses item=classQuotas}%>
+			<tr>
+				<td>
+					<span style="margin-left: 0px; color: #000000; font-weight:bold"><%{$classQuotas.name}%></span>
+				</td>
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+			<%{foreach name=allClassQuotas from=$classQuotas.data item=quotaItem}%>
+			<tr>
+				<td>
+					<span style="margin-left: <%{($quotaItem.level+1)*20}%>px; <%{if $quotaItem.level eq 0}%>color:#646464<%{/if}%>">
+					<%{$quotaItem.qcname}%>
+					</span>
+				</td>
+				<td>
+					<%{$quotaItem.order}%>
+				</td>
+				<td>
+					<%{section name=operateInfo loop=$rightOperates}%>
+					<a href="<%{$rightOperates[operateInfo].url}%>&qcid=<%{$quotaItem.qcid}%>" <%{if $rightOperates[operateInfo].name eq '删除'}%>class="delete" val=<%{$quotaItem.qcid}%><%{/if}%>>[<%{$rightOperates[operateInfo].name}%>]</a>
+					<%{/section}%>
+				</td>
+			</tr>
+			<%{/foreach}%>
+			<%{/foreach}%>
+	</table>
+</body>
+</html>

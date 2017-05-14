@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*查看厂商页面*/
+#viewFactory{width:700px;margin:10px auto}
+#viewFactory td{padding-top:30px;}
+.versionList{height:20px;}
+.versionList span{vertical-align:top;}
+.versionList .vname{display:inline-block;width:120px;}
+.versionList .vtype,.versionList .vcategory,.versionList .vname{padding-right:5px;}
+.versionList .vtype,.versionList .vcategory{display:inline-block;width:170px}
+.vtype label,.vcategory label{display:inline-block;width:110px;color:#525252;}
+
+/*新增厂商*/
+.submsg{display:block;margin:0;}
+.btnmargin{margin-top:0;}
+.formtype{width:90px;}

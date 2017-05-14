@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<style type="text/css">
+.brands label {
+	width: 150px;
+	display: block;
+	float: left;
+	padding-right: 6px;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $selectClassify = $("#classifyID");
+	var $quotaholder = $("#quotaholder");
+	
+	//为Select添加事件，当选择其中一项时触发
+	$selectClassify.change(function(){
+		var classifyID = $(this).val();
+		$quotaholder.html('');
+		
+		//异步请求数据
+		$.ajax({
+			url: "admin.php?app=quotaType&act=asyncQuotaClass",
+			type: "POST",
+			data: {id: classifyID},
+			dataType: "json",
+			cache: false,
+			success: function(data) {
+				if (data.type == 1) {
+					var quota = "<select name=\"quotaParentID\"> <option value=\"0\">---顶级分类---</option> ";
+					console.log(data.data);
+					$.each(data.data, function(key,val){
+						quota = quota + "<option value=\"" + val.qcid + "\">";
+						for (i=1; i<=val.level; i++) {
+							quota = quota + "&nbsp;&nbsp;";
+						}
+						quota = quota + val.qcname + "</option>";
+					});
+					quota = quota + "</select>";
+					$quotaholder.html(quota);
+					
+				} else if (data.type == 2) {
+					$quotaholder.html("<select name=\"quotaParentID\"> <option value=\"0\">---顶级分类---</option> </select>");
+				}
+			}
+		});
+	});
+	
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name: "required",
+			classifyID: "required",
+			order: "digits"
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<form id="inputForm" action="admin.php?app=quotaType&act=addQuotaType" method="post">
+		<table class="input">
+			
+			<tr>
+				<th>
+					<span class="requiredField">*</span>所属分类:
+				</th>
+				<td>
+					<select id="classifyID" name="classifyID">
+						<option value="">---请选择---</option>
+						<%{section name=classinfo loop=$classList}%>
+							<option value="<%{$classList[classinfo].classid}%>" <%{if $classList[classinfo].leaf eq 0}%>disabled="true"<%{/if}%> >
+									<%{section name=classLevel loop=$classList[classinfo].level}%>
+										&nbsp;&nbsp;
+									<%{/section}%>
+									<%{$classList[classinfo].className}%>
+							</option>
+						<%{/section}%>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					<span class="requiredField">*</span>所属指标分类:
+				</th>
+				<td id="quotaholder">
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					<span class="requiredField">*</span>指标分类名称:
+				</th>
+				<td>
+					<input type="text" id="name" name="name" class="text" value="" maxlength="200" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					排序:
+				</th>
+				<td>
+					<input type="text" name="order" class="text" value="1" maxlength="9" />
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					<input type="submit" class="button" value="确&nbsp;&nbsp;定" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=quotaType&act=quotaTypeManager'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

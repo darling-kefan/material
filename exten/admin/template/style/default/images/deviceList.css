@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*列表展示*/
+table{border:1px solid #d8d8d8;margin:20px auto 0 auto}
+table th,table td{height:30px; line-height:30px;padding-left:5px;border-bottom:1px solid #ebebeb}
+table th input,table td input{vertical-align:text-top;margin-right:5px;}
+table td span{cursor:pointer}
+.pagelist{margin-top:10px;float:right;}
+.bluebtn{margin-top:10px;}
+#main .linep{height:20px;}
+.actionForm{text-align:center;}
+
+
+#devModule{margin-top:20px;}
+#canDoList{margin-top:20px;margin-left:100px;}
+#canDoList div{height:30px;}
+#canDoList div label{width:70px;display:inline-block}
+#canDoList div a{width:150px;color:#417eb7;display:inline-block}

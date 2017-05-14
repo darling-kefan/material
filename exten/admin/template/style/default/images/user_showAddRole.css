@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.authdiv{
+	margin-top:10px;
+}
+.authdiv label{
+	display:inline-block; 
+	width:200px;
+	text-align:right;
+	vertical-align:top;
+	height:30px;
+	line-height:30px;
+}
+#main .linep label, #main .linediv label{width:160px;}
+#treeDiv{
+	display:block;
+	text-align:left;
+}
+.treelist{
+/*	display:block;
+	float:left;*/
+	padding-right:10px;
+	padding-bottom:20px;
+}
+.treelist ul{
+	padding:0;
+	margin:0;
+}
+.treelist li{
+	list-style:none;
+	line-height:22px;
+}
+.treelist li img,.treelist li input{vertical-align:middle}
+.treelist li ul{
+	padding-left:10px;
+}
+
+/*查看角色*/
+.actionForm{width:100%;margin:20px 0; text-align:center;}
+
+.btn,.bbtnmargin{margin-top:0;}

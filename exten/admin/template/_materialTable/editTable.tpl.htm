@@ -1,0 +1,287 @@
+<!--<%{capture name=banner}%><%{foreach from=$basicList.FieldType key=myId item=i}%><option value="<%{$myId}%>"><%{$i}%></option><%{/foreach}%><%{/capture}%>-->
+<%{capture name=banner}%><%{foreach from=$basicList.FieldType key=myId item=i}%><option value="<%{$myId}%>"><%{$i}%></option><%{/foreach}%><%{/capture}%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $specificationTable = $("#specificationTable");
+	var $type = $("#type");
+	var $addSpecificationValueButton = $("#addSpecificationValueButton");
+	var $deleteSpecificationValue = $("a.deleteSpecificationValue");
+	var $selectClassify = $("#classifyID");
+	var $quotaholder = $("#quotaholder td").eq(0);
+	var specificationValueIndex = <%{$tableAttrs.fieldsCount - 1}%>;
+	
+	$("input.browserButton").browser();
+	/*
+	//为Select添加事件，当选择其中一项时触发
+	$selectClassify.change(function(){
+		var classifyID = $(this).val();
+		$("#quotaholder").hide();
+		
+		//异步请求数据
+		$.ajax({
+			url: "admin.php?app=quotaType&act=asyncQuotaClass",
+			type: "POST",
+			data: {id: classifyID},
+			dataType: "json",
+			cache: false,
+			success: function(data) {
+				if (data.type == 1) {
+					$("#quotaholder").show();
+					
+					var quota = "<select name=\"quotaParentID\"> <option value=\"\">---请选择---</option>";
+
+					$.each(data.data, function(key,val){
+						quota = quota + "<option value=\"" + val.qcid + "\">";
+						for (i=1; i<=val.level; i++) {
+							quota = quota + "&nbsp;&nbsp;";
+						}
+						quota = quota + val.qcname + "</option>";
+					});
+					quota = quota + "</select>";
+					$quotaholder.html(quota);
+					
+				} else if (data.type == 2) {
+					$("#quotaholder").show();
+
+					var quota = "<span>无指标分类，您可以在此 <a href=\"admin.php?app=quotaType&act=viewAddQuotaType\" style=\"text-decoration:underline; color:red\">创建指标分类</a></span>";
+					$quotaholder.html(quota);
+				}
+			}
+		});
+	});
+	*/
+	// 增加表字段
+	$addSpecificationValueButton.click(function() {
+		//包含指标
+		//var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="fieldComment[' + specificationValueIndex + ']" class="text fieldComment" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <select id="type" name="fieldType[' + specificationValueIndex + ']" style="width:100px"><%{$smarty.capture.banner|regex_replace:"/[\/]/":"\/"}%><\/select> <\/span> <\/td> <td> <input type="text" name="unit[' + specificationValueIndex + ']" class="text unit" maxlength="100" \/> <\/td> <td> <input type="text" name="keyWords[' + specificationValueIndex + ']" class="text keyWords" maxlength="200" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';
+		var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="fieldComment[' + specificationValueIndex + ']" class="text fieldComment" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <select id="type" name="fieldType[' + specificationValueIndex + ']" style="width:100px"><%{$smarty.capture.banner|regex_replace:"/[\/]/":"\/"}%><\/select> <\/span> <\/td> <td> <input type="text" name="unit[' + specificationValueIndex + ']" class="text unit" maxlength="100" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';
+		$specificationTable.append(trHtml).find("input.browserButton:last").browser();
+		specificationValueIndex ++;
+	});
+
+	// 删除表字段
+	$deleteSpecificationValue.live("click", function() {
+		var $this  = $(this);
+		//$this.closest("tr").remove();
+		if (typeof $this.attr("val") != 'undefined') {
+			$.dialog({
+				type: "warn",
+				content: "您确定要删除吗？",
+				onOk: function() {
+					$.ajax({
+						url: "admin.php?app=materialTable&act=deleteTableField",
+						type: "POST",
+						data: {data: $this.attr("val")},
+						dataType: "json",
+						cache: false,
+						success: function(message) {
+							$.message(message);
+							if (message.type == "success") {
+								$this.closest("tr").remove();
+							}
+						}
+					});
+				}
+			});
+			return false;
+		} else {
+			$this.closest("tr").remove();
+		}
+		
+	});
+
+	$.validator.addClassRules({
+		fieldComment: {
+			//digits: true
+			required: true
+		}
+	});
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			tableName: "required",
+			comment: "required",
+			orders: "required",
+			quotaParentID: "required",
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<form id="inputForm" action="admin.php?app=materialTable&act=alterTable" method="post">
+		<input type="hidden" name="id" value="<%{$tableAttrs.id}%>" />
+		<input type="hidden" name="fieldList" value="<%{$fieldList}%>" />
+		<table id="specificationTable" class="input">
+			<tr class="titleTr">
+				<th>
+					<span class="requiredField">*</span>数据表名:
+				</th>
+				<td colspan="7">
+					<input type="hidden" name="tableName" value="<%{$tableAttrs.tableName}%>" />
+					<input type="text" name="comment" class="text" value="<%{$tableAttrs.tableComment}%>" maxlength="50" style="width:300px" />&nbsp;&nbsp;(如：中国2011年城市排水和污水处理统计)
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="requiredField">*</span>所属分类:
+				</th>
+				<td colspan="7">
+					<select name="parentId" id="classifyID" disabled="disabled">
+						<option value="">选择所属分类</option>
+						<%{section name=classinfo loop=$classList}%>
+							<option value="<%{$classList[classinfo].classid}%>" <%{if $classList[classinfo].classid eq $tableAttrs.classid}%>selected="selected"<%{/if}%>>
+									<%{section name=classLevel loop=$classList[classinfo].level}%>
+										&nbsp;&nbsp;
+									<%{/section}%>
+									<%{$classList[classinfo].className}%>
+							</option>
+						<%{/section}%>
+					</select>
+					<input type="hidden" name="parentId" value="<%{$tableAttrs.classid}%>" />
+				</td>
+			</tr>
+			
+			<!-- 
+			<tr id="quotaholder">
+				<th>
+					<span class="requiredField">*</span>所属指标分类:
+				</th>
+				<td colspan="7">
+					<%{if $classQuotas|@count neq 0}%>
+					<select name="quotaParentID">
+						<option value="">---请选择---</option>
+						<%{foreach from=$classQuotas item=quotaClassItem}%>
+							<option value="<%{$quotaClassItem.qcid}%>" <%{if $quotaClassItem.qcid eq $tableAttrs.qcid}%>selected="selected"<%{/if}%>>
+								<%{section name=quotaLevel loop=$quotaClassItem.level}%>
+									&nbsp;&nbsp;
+								<%{/section}%>
+								<%{$quotaClassItem.qcname}%>
+							</option>
+						<%{/foreach}%>
+					</select>
+					<%{elseif $tableAttrs.qcid}%>
+					<span>该指标分类已不存在，请重新选择！</span>
+					<%{else}%>
+					<span>无指标分类，您可以在此 <a href="admin.php?app=quotaType&act=viewAddQuotaType" style="text-decoration:underline; color:red">创建指标分类</a></span>
+					<%{/if}%>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					关键字:
+				</th>
+				<td colspan="7">
+					<input type="text" name="tableKeyword[]" class="text" value="<%{$tableAttrs.keywords[0]}%>" maxlength="50" style="width:150px" />&nbsp;&nbsp;
+					<input type="text" name="tableKeyword[]" class="text" value="<%{$tableAttrs.keywords[1]}%>" maxlength="50" style="width:150px" />&nbsp;&nbsp;
+					<input type="text" name="tableKeyword[]" class="text" value="<%{$tableAttrs.keywords[2]}%>" maxlength="50" style="width:150px" />&nbsp;&nbsp;
+				</td>
+				</td>
+			</tr>
+			 -->
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td colspan="6">
+					<a href="javascript:;" id="addSpecificationValueButton" class="button">增加字段</a>
+				</td>
+			</tr>
+			<tr class="title">
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					列名
+				</td>
+				<td>
+					字段类型
+				</td>
+				<td>
+					计量单位
+				</td>
+				<!-- 
+				<td>
+					指标/关键字
+				</td>
+				-->
+				<td>
+					删除
+				</td>
+			</tr>
+				<%{section name=field loop=$tableFields}%>
+				<%{if $tableFields[field].field neq 'field0'}%>
+				<tr class="specificationValueTr">
+					<td>
+						
+					</td>
+					<td>
+						<input type="hidden" name="fieldName[<%{$smarty.section.field.index}%>]" value="<%{$tableFields[field].field}%>" />
+						<input type="text" name="fieldComment[<%{$smarty.section.field.index}%>]" class="text fieldComment" value="<%{$tableFields[field].comment}%>" maxlength="200" <%{if $tableFields[field].field eq 'field1'}%>disabled="disabled"<%{/if}%> />
+						<%{if $tableFields[field].field eq 'field1'}%>
+						<input type="hidden" name="fieldComment[<%{$smarty.section.field.index}%>]" class="text fieldComment" value="<%{$tableFields[field].comment}%>" />
+						<%{/if}%>
+					</td>
+					<td>
+						
+						<%{if $tableFields[field].field eq 'field1'}%>
+						<select style="width:100px" disabled="disabled">
+							<option>内置</option>
+						</select>
+						<input type="hidden" name="fieldType[<%{$smarty.section.field.index}%>]" value="<%{$tableFields[field].type}%>" />
+						<%{else}%>
+						<select name="fieldType[<%{$smarty.section.field.index}%>]" style="width:100px">
+							<%{foreach from=$basicList.FieldType key=myId item=i}%>
+							<option value="<%{$myId}%>" <%{if $myId|upper eq $tableFields[field].type|upper}%>selected="selected"<%{/if}%>><%{$i}%></option>
+							<%{/foreach}%>
+						</select>
+						<%{/if}%>
+					</td>
+					<td>
+						<input type="text" name="unit[<%{$smarty.section.field.index}%>]" class="text unit" value="<%{$tableFields[field].unit}%>" maxlength="200" <%{if $tableFields[field].field eq 'field1'}%>disabled="disabled"<%{/if}%> />
+						<%{if $tableFields[field].field eq 'field1'}%>
+						<input type="hidden" name="unit[<%{$smarty.section.field.index}%>]" value="<%{$tableFields[field].unit}%>" />
+						<%{/if}%>
+					</td>
+					<td>
+						<%{if $tableFields[field].field neq 'field1'}%>
+						<a href="javascript:;" class="deleteSpecificationValue" val="<%{$tableAttrs.tableName}%>:<%{$tableFields[field].field}%>">[删除]</a>
+						<%{/if}%>
+					</td>
+				</tr>
+				<%{/if}%>
+				<%{/section}%>
+		</table>
+		<table class="input">
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td colspan="7">
+					<input type="submit" class="button" value="确&nbsp;&nbsp;定" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=getTablesList'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

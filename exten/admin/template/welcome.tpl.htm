@@ -1,0 +1,161 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<title>管理中心首页 - Powered By SQTANG</title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<style type="text/css">
+.input .powered {
+	font-size: 11px;
+	text-align: right;
+	color: #cccccc;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	$.message("success", "欢迎使用原料数据管理系统!");
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		管理中心首页
+	</div>
+	<table class="input" style="font-size:12px;">
+		<tbody>
+		<tr>
+			<th>
+				系统名称:
+			</th>
+			<td>
+				生物质能源原料相关信息数据库系统
+			</td>
+			<th>
+				系统版本:
+			</th>
+			<td>
+				1.0 RELEASE
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="4">
+				&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<th>
+				操作系统:
+			</th>
+			<td colspan="3">
+				<%{$basicInfo.systemRealse}%>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				通信协议:
+			</th>
+			<td>
+				<%{$basicInfo.serverProtocol}%>
+			</td>
+			<th>
+				域名:
+			</th>
+			<td>
+				<%{$basicInfo.serverName}%>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				服务器IP:
+			</th>
+			<td>
+				<%{$basicInfo.serverAddr}%>
+			</td>
+			<th>
+				&nbsp;
+			</th>
+			<td>
+				&nbsp;
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="4">
+				&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<th>
+				WEB服务器:
+			</th>
+			<td>
+				<%{$basicInfo.serverSoftware}%>
+			</td>
+			<th>
+				数据库:
+			</th>
+			<td>
+				MySQL <%{$basicInfo.mysqlVersion}%>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				开发语言:
+			</th>
+			<td>
+				PHP <%{$basicInfo.phpVersion}%>
+			</td>
+			<th>
+				运行方式:
+			</th>
+			<td>
+				<%{$basicInfo.phpSapiName}%>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				缓存:
+			</th>
+			<td>
+				Memcached
+			</td>
+			<th>
+				根目录:
+			</th>
+			<td>
+				<%{$basicInfo.documentRoot}%>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="4">
+				&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<th>
+				客户端IP:
+			</th>
+			<td>
+				<%{$basicInfo.remoteAddr}%>
+			</td>
+			<th>
+				&nbsp;
+			</th>
+			<td>
+				&nbsp;
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="4" class="powered">
+				COPYRIGHT &copy; 2005-2013  ALL RIGHTS RESERVED.
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>

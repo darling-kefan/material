@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>录入原料数据</title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/WdatePicker.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/kindeditor.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $specificationTable = $("#specificationTable");
+	var $type = $("#type");
+	var $addSpecificationValueButton = $("#addSpecificationValueButton");
+	var $deleteSpecificationValue = $("a.deleteSpecificationValue");
+	var specificationValueIndex = 20;
+	
+	
+	// 修改规格类型
+	$type.change(function() {
+		if ($(this).val() == "text") {
+			$("input.specificationValuesImage").val("").prop("disabled", true);
+			$("input.browserButton").prop("disabled", true);
+		} else {
+			$("input.specificationValuesImage").prop("disabled", false);
+			$("input.browserButton").prop("disabled", false);
+		}
+	});
+	
+	$("input.browserButton").browser();
+	
+	// 增加规格值
+	$addSpecificationValueButton.click(function() {
+		if ($type.val() == "text") {
+var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].name" class="text specificationValuesName" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <input type="text" name="specificationValues[' + specificationValueIndex + '].name" class="text specificationValuesName" maxlength="200" \/> <\/span> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" style="width: 30px;" \/> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" \/> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';		} else {
+//var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].name" class="text specificationValuesName" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <input type="text" name="specificationValues[' + specificationValueIndex + '].image" class="text specificationValuesImage" maxlength="200" \/> <input type="button" class="button browserButton" value="选择文件" \/> <\/span> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" style="width: 30px;" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';
+var trHtml = '<tr class="specificationValueTr"> <td> &nbsp; <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].name" class="text specificationValuesName" maxlength="200" \/> <\/td> <td> <span class="fieldSet"> <input type="text" name="specificationValues[' + specificationValueIndex + '].name" class="text specificationValuesName" maxlength="200" \/> <\/span> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" style="width: 30px;" \/> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" \/> <\/td> <td> <input type="text" name="specificationValues[' + specificationValueIndex + '].order" class="text specificationValuesOrder" maxlength="9" \/> <\/td> <td> <a href="javascript:;" class="deleteSpecificationValue">[删除]<\/a> <\/td> <\/tr>';		}
+		$specificationTable.append(trHtml).find("input.browserButton:last").browser();
+		specificationValueIndex ++;
+	});
+	
+	// 删除规格值
+	$deleteSpecificationValue.live("click", function() {
+		var $this = $(this);
+		if ($specificationTable.find("tr.specificationValueTr").size() <= 1) {
+			$.message("warn", "必须至少保留一个规格值");
+		} else {
+			$this.closest("tr").remove();
+		}
+	});
+	
+	$.validator.addClassRules({
+		specificationValuesName: {
+			required: true
+		},
+		specificationValuesImage: {
+			required: true
+		},
+		specificationValuesOrder: {
+			digits: true
+		}
+	});
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name: "required",
+			order: "digits"
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		原料数据中心 &raquo; 中国2011年城市排水和污水处理统计 &raquo; 录入原料数据
+	</div>
+	<form id="inputForm" action="update.jhtml" method="post">
+		<input type="hidden" name="id" value="2" />
+		<table id="specificationTable" class="input">
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td colspan="6">
+					<a href="javascript:;" id="addSpecificationValueButton" class="button">增加记录</a>
+				</td>
+			</tr>
+			<tr class="title">
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					字段1
+				</td>
+				<td>
+					字段2
+				</td>
+				<td>
+					字段3
+				</td>
+				<td>
+					字段4
+				</td>
+				<td>
+					字段5
+				</td>
+				<td>
+					操作
+				</td>
+			</tr>
+				<tr class="specificationValueTr">
+					<td>
+						<input type="hidden" name="specificationValues[0].id" value="21" />
+					</td>
+					<td>
+						<input type="text" name="specificationValues[0].name" class="text specificationValuesName" value="" maxlength="100" />
+					</td>
+					<td>
+						<input type="text" name="specificationValues[0].name" class="text specificationValuesName" value="" maxlength="100" />
+					</td>
+					<td>
+						<input type="text" name="specificationValues[0].name" class="text specificationValuesName" value="" maxlength="100" style="width:30px" />
+					</td>
+					<td>
+						<input type="text" name="specificationValues[0].name" class="text specificationValuesName" value="" maxlength="100" />
+					</td>
+					<td>
+						<input type="text" name="specificationValues[0].name" class="text specificationValuesName" value="" maxlength="200" />
+					</td>
+					<td>
+						<a href="javascript:;" class="deleteSpecificationValue">[删除]</a>
+					</td>
+				</tr>
+				
+		</table>
+		<table class="input">
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td colspan="4">
+					<input type="submit" class="button" value="提&nbsp;&nbsp;交" />
+					<input type="submit" class="button" value="暂&nbsp;&nbsp;存" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='list.jhtml'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

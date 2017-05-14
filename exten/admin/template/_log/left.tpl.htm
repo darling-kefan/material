@@ -1,0 +1,99 @@
+<ul>
+	<%{if $_LeftMenus|@count neq 0}%>
+	<li class="leftspantype_btn"><label><%{$_LeftMenus[0].name}%></label>
+        <ul class="leftspanchild isclick toplistbar">
+        	<%{foreach from=$_LeftMenus[0].menus item=leftmenu}%>
+                 <%{if $leftmenu.status eq 1}%>
+       			 <li class="leftspanchild selected">
+           			 <label>
+                     	&gt; <a href="<%{$leftmenu.url}%>"><%{$leftmenu.name}%></a>
+                   	  	<%{if $leftmenu.menus}%>
+                        	<%{if $leftmenu.status==1}%>
+                     			<img class="listclosed" src="exten/admin/template/images/images/leftwhite2.png" />
+                            <%{else}%>
+                            	<img class="listclosed" src="exten/admin/template/images/images/leftblue2.png" />
+                            <%{/if}%>
+                     	 <%{/if}%>
+                     </label>
+                    <!-- <%{if $leftmenu.menus}%>-->
+                     <ul style="display:none">
+                     	<%{foreach from=$leftmenu.menus item=menus}%>
+                        <%{if $menus.status==1}%>
+                        <li class="selected secondchild">
+                        	<a href="<%{$menus.url}%>"><%{$menus.name}%></a>
+                        </li>
+                        <%{else}%>
+                         <li class="secondchild">
+                        	<a href="<%{$menus.url}%>"><%{$menus.name}%></a>
+                        </li>
+                        <%{/if}%>
+                        <%{/foreach}%>
+                     </ul>
+                    <!-- <%{/if}%>-->
+        		</li>
+                <%{else}%>
+                <li class="leftspanchild">
+           			 <label>
+                     	&gt; <a href="<%{$leftmenu.url}%>"><%{$leftmenu.name}%></a>
+                   	  	<%{if $leftmenu.menus}%>
+                        	<%{if $leftmenu.status==1}%>
+                     			<img class="listclosed" src="exten/admin/template/images/images/leftwhite2.png" />
+                            <%{else}%>
+                            	<img class="listclosed" src="exten/admin/template/images/images/leftblue2.png" />
+                            <%{/if}%>
+                     	 <%{/if}%>
+                     </label>
+                     <ul style="display:none">
+                     	<%{foreach from=$leftmenu.menus item=menus}%>
+                        <%{if $menus.status==1}%>
+                        <li class="selected secondchild">
+                        	<a href="<%{$menus.url}%>"><%{$menus.name}%></a>
+                        </li>
+                        <%{else}%>
+                        <li class="secondchild">
+                        	<a href="<%{$menus.url}%>"><%{$menus.name}%></a>
+                        </li>
+                        <%{/if}%>
+                        <%{/foreach}%>
+                     </ul>
+        		</li>
+                <%{/if}%>
+       		<%{/foreach}%>
+        </ul>
+    </li>
+	<%{/if}%>
+    <%{if $_ShortCuts|@count neq 0}%>
+	<li class="leftspantype_btn"><label>常用操作</label>
+    	<ul>
+        <%{foreach from=$_ShortCuts item=nomalActions}%>
+        <li class="leftspanchild">
+            <label>&gt; <a href="<%{$nomalActions[1]}%>"><%{$nomalActions[0]}%></a></label>
+        </li>
+        <%{/foreach}%>
+        </ul>
+    </li>
+    <%{/if}%>
+</ul>
+
+
+<!--<ul>
+	<li class="leftspantype_btn"><label>设备管理</label></li>
+    <li class="leftspanchild isclick">
+    	<label>&gt; 类别管理 <span><img src="exten/admin/template/images/images/leftblue2.png" /></span></label>
+        <label>&gt; 类型管理 <span><img src="exten/admin/template/images/images/leftblue2.png" /></span></label>
+        <label>&gt; 型号管理 <span><img src="exten/admin/template/images/images/leftblue2.png" /></span></label>
+        <label>&gt; 厂商管理 <span><img src="exten/admin/template/images/images/leftblue2.png" /></span></label>
+        <label>&gt; 设备列表 <span><img src="exten/admin/template/images/images/leftblue1.png" /></span></label>
+        <ul>
+            <li class="leftspanchild isclick selected">
+                <label>&nbsp;新建设备</label>
+            </li>
+        </ul>
+    </li>
+	<li class="leftspantype_btn"><label>常用操作</label></li>
+    <%{foreach from=$shortCuts item=nomalActions}%>
+    <li class="leftspanchild">
+    	<label>&gt; <a href="<%{$nomalActions[1]}%>"><%{$nomalActions[0]}%></a></label>
+    </li>
+	<%{/foreach}%>
+</ul>-->

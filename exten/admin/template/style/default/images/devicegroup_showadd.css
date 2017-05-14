@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+#main_header .btn{cursor:pointer;border:1px solid #999; padding:0 3px;margin:2px 3px;float:right; line-height:24px}
+#panelAddDevice{width:800px;height:520px; position:absolute; top:50px;left:50px;z-index:1000}
+
+.inline{display:inline-table;}
+.box{display:inline-block;border:1px solid #88B6E0; height:24px; line-height:24px;margin:6px 0px 6px 12px;padding:0px 5px;width:120px; position:relative;background:#E2F1FF}
+.box em{display:inline-block;width:100px; height:24px; overflow:hidden; color:#666666}
+.box img{position:absolute;height:16px;width:16px; cursor:pointer}
+.box .add{left:110px;top:4px;}
+.box .del{left:122px;top:-8px; display:none}
+.start1,.start2,.middle,.end{height:38px}
+.start1{background:url(images/1.png) no-repeat}
+.start2{background:url(images/2.png) no-repeat}
+.middle{background:url(images/4.png) no-repeat}
+.end{background:url(images/3.png) no-repeat}
+.children{}
+.brother{float:right}

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+</style>
+<style type="text/css">
+	.specificationSelect {
+		min-height: 260px;
+		padding: 5px;
+		overflow-y: scroll;
+		border: 1px solid #cccccc;
+	}
+	.specificationSelect dl {
+		diplay:block;
+		width:181px;
+		height:250px;	
+		float:left;
+		margin-left:10px;
+		margin-right:10px;
+		margin-bottom:5px;
+		margin-top:5px;
+		border:1px solid #cccccc;
+		overflow:auto
+	}
+	.specificationSelect dt {
+		height: 30px;
+		line-height: 30px;
+		width: 160px;
+		padding: 0 10px;
+		font-weight:bold;
+		overflow: hidden;
+		text-align:center;
+		background-color: #F1F8FF;
+		border-bottom:1px solid #cccccc;
+	}
+	.specificationSelect dd {
+		height: 30px;
+		line-height: 30px;
+		width: 170px;
+		padding:0 5px;
+		overflow: hidden;
+	}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $quotaholder = $("#quotaholder");
+	var $quotaParentIds = $("#quotaParentID");
+	
+	var $specificationProductTable = $("#specificationProductTable");
+	
+	$quotaParentIds.change(function(){
+		var quotaParentId = $(this).val();
+		$("#specificationSelect").html('');
+		var selectTables = '';
+		
+		//异步请求数据
+		$.ajax({
+			url: "admin.php?app=quota&act=asyncGetTablesByQType",
+			type: "POST",
+			data: {id: quotaParentId},
+			dataType: "json",
+			cache: false,
+			success: function(data) {
+				console.log(data);
+
+				$.each(data, function(key,val){
+					selectTables = selectTables + "<dl> <dt>"+ val.comment +"<input type=\"hidden\" name=\"tid[]\" value=\""+ val.tid +"\" /></dt>";
+					console.log(val.data);
+					$.each(val.data, function(i,fieldInfo){
+						selectTables = selectTables + "<dd> <input type=\"checkbox\" name=\"table"+ val.tid +"_fields[]\" value=\""+ fieldInfo.fname +"\" />"+ fieldInfo.fcomment +"</dd>";
+					});
+					
+					selectTables = selectTables + "</dl>";
+					//selectTables = selectTables + "<dt> <input type=\"checkbox\" name=\"specificationIds\" value=\""+ val.name +"\" />"+ val.comment +" </label> </li>";
+				});
+
+				$("#specificationSelect").html(selectTables);
+
+			}
+		});
+	});
+
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			quotaCId: "required",
+			quotaName: "required"
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<form id="inputForm" action="admin.php?app=quota&act=editQuota" method="post">
+		<input type="hidden" name="quotaid" value="<%{$quotaInfo.quotaid}%>" />
+		<table class="input tabContent">
+			<tr class="title">
+				<th>
+					<span class="requiredField">*</span>请选择指标类别:
+				</th>
+			</tr>
+			<tr>
+				<td>
+				<select name="quotaCId" id="quotaParentID">
+					<option value="">---请选择---</option>
+					<%{foreach name=allQuotaClasses from=$allQuotaClassList item=classQuotas}%>
+						<option value="" disabled="disabled"><%{$classQuotas.name}%></option>
+						<%{foreach name=allClassQuotas from=$classQuotas.data item=quotaItem}%>
+							<option value="<%{$quotaItem.qcid}%>" <%{if $quotaInfo.qcid eq $quotaItem.qcid}%>selected="selected"<%{/if}%>><%{section name=quotaLevel loop=$quotaItem.level+1}%>&nbsp;&nbsp;<%{/section}%><%{$quotaItem.qcname}%></option>
+						<%{/foreach}%>
+					<%{/foreach}%>
+				</select>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+				
+				</td>
+			</tr>
+		
+			<tr class="title">
+				<th>
+					<span class="requiredField">*</span>请选择原料数据表字段:
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<div id="specificationSelect" class="specificationSelect">
+						<%{foreach from=$tableFieldsVar key=tid item=tableInfo}%>
+						<dl>
+							<dt>
+								<%{$tableInfo.name}%>
+								<input type="hidden" value="<%{$tid}%>" name="tid[]">
+							</dt>
+							<%{foreach from=$tableInfo.fields item=fieldInfo}%>
+							<dd>
+								<input type="checkbox" value="<%{$fieldInfo.fname}%>" name="table<%{$tid}%>_fields[]" <%{if $fieldInfo.checked eq 1}%>checked="checked"<%{/if}%>>
+								<%{$fieldInfo.fcomment}%>
+							</dd>
+							<%{/foreach}%>
+						</dl>
+						<%{/foreach}%>
+					</div>
+				</td>
+			</tr>
+			
+			<tr class="title">
+				<th>
+					<span class="requiredField">*</span>请填写指标名称:
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="quotaName" style="width:300px" value="<%{$quotaInfo.quotaname}%>" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" class="button" value="确&nbsp;&nbsp;定" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=quota&act=quotaManager'" />
+				</td>
+			</tr>
+		</table>
+		
+
+	</form>
+</body>
+</html>

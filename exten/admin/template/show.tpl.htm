@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="no-cache">
+<title>提示信息</title>
+<style type="text/css">
+<!--
+* {
+margin:0;
+padding:0;
+}
+body {
+text-align:center;font-family:Arial, Helvetica, sans-serif,"宋体";
+}
+p {
+font-size: 12px;
+line-height:150%;
+margin:5px;
+background-color:#fff;
+padding:8px;
+}
+h1 {
+height:16px;
+line-height:16px;
+font-size:12px;
+text-align:center;
+background-color:#fafafa;
+
+padding-top:5px;
+}
+.box_border {
+margin:0 auto;
+margin-top:80px;
+border:1px solid #ddd;
+width:450px;
+background-color:#fafafa;
+}
+A:link {
+	COLOR: #006;
+	TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #006;
+	TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0033cc;
+	TEXT-DECORATION: underline
+}
+-->
+</style>
+</head>
+<body>
+<div class="box_border">
+<%{if $smarty.session.MsgType === 1}%>
+
+<h1>错误提示信息</h1>
+<p><img src="exten/admin/template/images/error.gif"><br><%{$smarty.session.MsgContent}%><br />
+<a href="<%{$smarty.session.Referer}%>">[点这里返回上一页]</a>
+
+<%{elseif $smarty.session.MsgType === 0}%>
+
+<h1>操作完成提示信息</h1>
+<p><img src='exten/admin/template/images/success.gif'><br><%{$smarty.session.MsgContent}%><br />
+<a href='<%{$smarty.session.Referer}%>'>[如果您的浏览器没有刷新，请点击这里]</a>
+<meta http-equiv='Refresh' content='3; URL=<%{$smarty.session.Referer}%>' />
+
+<%{else}%>
+<h1>错误提示信息</h1>
+<p><img src="exten/admin/template/images/error.gif"><br>页面已过期<br />
+<a href="javascript:history.go(-1);">[点这里返回上一页]</a>
+<%{/if}%>
+</div>
+</body>
+</html>

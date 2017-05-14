@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<meta name="author" content="sqtang" />
+<meta name="copyright" content="sqtang" />
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.tools.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<style type="text/css">
+.roles label {
+	width: 150px;
+	display: block;
+	float: left;
+	padding-right: 6px;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			<%{foreach from=$fieldsInfo key=myId item=record}%><%{if $myId gt 0}%><%{$record.Field}%>:{
+				<%{if $record.Null eq 'NO'}%>required: true,<%{/if}%><%{if $record.Type|lower eq 'varchar' || $record.Type|lower eq 'text'}%>pattern: /^[0-9a-z_A-Z\u4e00-\u9fa5]+$/,<%{/if}%><%{if $record.Type|lower eq 'int' || $record.Type|lower eq 'float' || $record.Type|lower eq 'double'}%>pattern: /^[0-9.]+$/,<%{/if}%>maxlength: <%{$record.length}%>
+			}<%{/if}%><%{/foreach}%>
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		原料数据中心 &raquo; <%{$basicInfo.tableName}%> &raquo; 更新数据
+	</div>
+	<form id="inputForm" action="admin.php?app=materialTable&act=updateRecords" method="post">
+		<ul id="tab" class="tab">
+			<li>
+				<input type="button" value="数据" />
+			</li>
+			<li>
+				<input type="button" value="属性" />
+			</li>
+		</ul>
+		<table class="input tabContent">
+			<input type="hidden" name="tableID" class="text" value="<%{$basicInfo.tableID}%>" />
+			<%{foreach from=$fieldsInfo key=myId item=record}%>
+			<%{if $myId eq 0}%>
+			<input type="hidden" name="recordID" class="text" value="<%{$record.value}%>" />
+			<%{else}%>
+			<tr>
+				<th style="width:200px">
+					<span class="requiredField">*</span><%{$record.Comment}%>（<%{$record.Field}%>）
+				</th>
+				<td>
+					<%{if $record.Field eq 'field0'}%>
+						<%{if $basicInfo.classid eq 5 || $basicInfo.classid eq 8}%>
+							<select name="<%{$record.Field}%>">
+								<%{foreach from=$months item=month}%>
+								<option value="<%{$month.value}%>" <%{if $month.value eq $record.value}%>selected="selected"<%{/if}%>><%{$month.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $basicInfo.classid eq 7 || $basicInfo.classid eq 9}%>
+							<select name="<%{$record.Field}%>">
+								<%{foreach from=$years item=year}%>
+								<option value="<%{$year}%>" <%{if $year eq $record.value}%>selected="selected"<%{/if}%>><%{$year}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{else}%>
+							<select name="<%{$record.Field}%>">
+								<%{foreach from=$quarters item=quarter}%>
+								<option value="<%{$quarter.value}%>"  <%{if $quarter.value eq $record.value}%>selected="selected"<%{/if}%>><%{$quarter.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{/if}%>
+					<%{elseif $record.Field eq 'field1'}%>
+						<%{if $basicInfo.classid eq 1}%>
+							<select name="field1">
+								<%{foreach from=$months item=month}%>
+								<option value="<%{$month.value}%>" <%{if $month.value eq $record.value}%>selected="selected"<%{/if}%>><%{$month.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $basicInfo.classid eq 2}%>
+							<select name="field1">
+								<%{foreach from=$quarters item=quarter}%>
+								<option value="<%{$quarter.value}%>" <%{if $quarter.value eq $record.value}%>selected="selected"<%{/if}%>><%{$quarter.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $basicInfo.classid eq 3}%>
+							<select name="field1">
+								<%{foreach from=$years item=year}%>
+								<option value="<%{$year}%>" <%{if $year eq $record.value}%>selected="selected"<%{/if}%>><%{$year}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $basicInfo.classid eq 5 
+						   || $basicInfo.classid eq 6 
+						   || $basicInfo.classid eq 7 }%>
+							<select name="field1">
+								<%{foreach from=$provinces item=province}%>
+								<option value="<%{$province}%>" <%{if $province eq $record.value}%>selected="selected"<%{/if}%>><%{$province}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $basicInfo.classid eq 8 
+						   || $basicInfo.classid eq 9}%>
+							<select name="field1">
+								<%{foreach from=$cities item=city}%>
+								<option value="<%{$city}%>" <%{if $city eq $record.value}%>selected="selected"<%{/if}%>><%{$city}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{/if}%>
+					<%{else}%>
+					<input type="text" name="<%{$record.Field}%>" class="text" maxlength="20" value="<%{$record.value}%>" />
+					<%{/if}%>
+				</td>
+			</tr>
+			<%{/if}%>
+			<%{/foreach}%>
+		</table>
+		<table class="input tabContent">
+			<tr>
+				<th style="width:200px">
+					原料表
+				</th>
+				<td>
+					<input type="text" name="tableName" class="text" maxlength="200" value="<%{$basicInfo.tableName1}%>" disabled="disabled" />
+				</td>
+			</tr>
+			<tr>
+				<th style="width:200px">
+					录入者
+				</th>
+				<td>
+					<input type="text" name="creator" class="text" maxlength="200" value="<%{$basicInfo.uname}%>" disabled="disabled" />
+				</td>
+			</tr>
+			<tr>
+				<th style="width:200px">
+					状态
+				</th>
+				<td>
+					<input type="text" name="r_status" class="text" maxlength="200" value="<%{if $basicInfo.r_status eq 1}%>提交<%{else}%>暂存<%{/if}%>" disabled="disabled" />
+				</td>
+			</tr>
+			<tr>
+				<th style="width:200px">
+					录入时间:
+				</th>
+				<td>
+					<input type="text" name="r_time" class="text" maxlength="200" value="<%{$basicInfo.r_time}%>" disabled="disabled" />
+				</td>
+			</tr>
+			<!-- 
+			<%{if $basicInfo.gid == 1}%>
+			<tr class="authorities">
+				<th>
+					<a href="javascript:;" class="selectAll" title="全选此组权限">写入权限</a>
+				</th>
+				<td>
+					<span class="fieldSet">
+						<label>
+							<input type="checkbox" class="module" name="writer[]" value="1" />check2
+						</label>
+					</span>
+				</td>
+			</tr>
+			
+			<tr class="authorities">
+				<th>
+					<a href="javascript:;" class="selectAll" title="全选此组权限">只读权限</a>
+				</th>
+				<td>
+					<span class="fieldSet">
+						<label>
+							<input type="checkbox" class="module" name="reader[]" value="1" />test
+						</label>
+					</span>
+				</td>
+			</tr>
+			<%{/if}%>
+			 -->
+		</table>
+		<table class="input">
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					<input type="submit" class="button" value="提&nbsp;&nbsp;交" />
+					<input type="submit" class="button" value="暂&nbsp;&nbsp;存" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=viewTableRecords&tableID=<%{$basicInfo.tableID}%>'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

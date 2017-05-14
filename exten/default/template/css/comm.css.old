@@ -1,0 +1,443 @@
+.main-wraper{width:100%; float:left;}
+.main-wraper .main{width:980px; margin:0 auto; padding-top:5px; padding-bottom:15px}
+.main-wraper .main .container{width:980px;float:left; margin-top:10px;}
+
+
+/* 此样式暂未使用 */
+.main-wraper .main .hot-subheader {background-color: #F4F4F4; border-bottom: 1px solid #E4E4E4; height: 30px; margin-top: 3px; padding-bottom: 5px; padding-top: 15px;}
+.main-wraper .main .hot-subheader .htsbhdr-bar {margin: 0 auto; width: 980px;}
+.hot-subheader .gap {background:url(../img/icon_sprite.png) no-repeat;background-position: left -2806px;height: 33px;width: 1px;}
+.hot-subheader li {line-height: 27px;padding: 0 20px;}
+ul.v li, .v {display: inline-block;vertical-align: top;}
+.hot-subheader .cur {border-bottom: 2px solid #55CC99;}
+.hot-subheader li a {color: #484343;display: block;padding: 0 2px;text-decoration: none;}
+a.a {transition: color 0.6s ease 0s, background-color 0.6s ease 0s;}
+
+
+/* 首页CSS样式 */
+.main-wraper .main .container .left-side{width:680px;float:left;}
+.main-wraper .main .container .right-side {float: left; margin-left:20px; display:inline;width: 280px;}
+.main-wraper .main .container .right-side .hotupdate {float:left;background-color: #FFFFFF;border: 1px solid #E6E6E6; width:278px;}
+.main-wraper .main .container .right-side .hotupdate .hd {border-bottom: 1px dotted #D9D9D9;line-height: 35px;height:35px;padding-left:10px;}
+.main-wraper .main .container .right-side .hotupdate .hd h2 {background:url(../img/icon_sprite.png) no-repeat;background-position: -146px -1250px;color: #323232;padding-left: 25px;}
+.main-wraper .main .container .right-side .hotupdate ul{float:left;min-height:300px; width:258px;padding:10px 15px 0 15px;}
+.main-wraper .main .container .right-side .hotupdate li{width:248px;margin-bottom:5px;float:left;border-bottom: 1px solid #EBEBEB;height:28px;line-height: 28px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.main-wraper .main .container .right-side .hotupdate li:last-child {border-bottom: 0 none;}
+.main-wraper .main .container .right-side .hotupdate li a{color: #655565;}
+.main-wraper .main .container .right-side .hotupdate li a:hover{color: #655565;text-decoration: underline;}
+.main-wraper .main .container .right-side .hotupdate li span{color:#666;font-size:12px}
+.main-wraper .main .container .left-side .fasttips{background-color: #FFFFFF;border: 1px solid #E0E0E3;border-radius: 3px;box-shadow: 0 1px 1px #DDDDDD;margin-bottom: 18px;float:left;height:353px;width:678px;}
+.left-side .fasttips .fasttips-banner {float:left;border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;border-top: 1px solid #E4E4E4;width:678px;height: 40px;line-height: 40px;background: url("../img/bg_sprite.gif") repeat-x left top;}
+.left-side .fasttips .fasttips-banner span{padding-left:20px;color:#323232;width:415px;height: 40px;display: block;float:left;text-align:left;}
+.left-side .fasttips .fasttips-banner ul li{list-style: none;width:80px;height:40px;float:left;text-align:center;color: #323232;border-left: 1px solid #E4E4E4;cursor: pointer}
+.left-side .fasttips .fasttips-banner ul li.selected-fasttip{color:#fd5454;font-weight:bold;background-color:white}
+.left-side .fasttips .fasttips-content{width: 658px;height:300px;padding: 0px 10px;}
+.left-side .fasttips .fasttips-content li{width:210px;height: 35px;line-height: 35px;margin-left: 10px;border-bottom: 1px solid #E4E4E4;float:left}
+.left-side .fasttips .fasttips-content li a{color: #655565;}
+.left-side .fasttips .fasttips-content li a:hover{color: #21936a;text-decoration: underline;}
+
+
+/* 注册登录页面CSS样式 */
+.reg-hot-title {color: #444444;font-size: 20px;line-height: 40px;float: left;border-radius: 3px;}
+.reg-left-side{width: 630px;margin-right: 10px;float: left;border-radius: 3px;min-height: 400px}
+.reg-left-side .reg-content{width: 590px;margin-right: 10px;min-height: 341px;float: left;background: none repeat scroll 0 0 #fff;border-radius: 3px;padding: 20px}
+.reg-left-side .reg-content li{width:590px;float:left;height:35px;margin-bottom:20px}
+.reg-left-side .reg-content .reg-name{width:90px;padding-right:10px;height:35px;float:left;line-height:35px;text-align:right;}
+.reg-left-side .reg-content .reg-input{width:300px;height:35px;float:left;}
+.reg-left-side .reg-content .reg-note{width:170px;padding-left:20px;height:35px;float:left;line-height:35px;font-size:12px;color:red}
+.reg-left-side .reg-content .reg-input input{height:32px;width:300px}
+.reg-left-side .reg-content .register-btn {background: url("../img/login_icon.gif") no-repeat scroll left -254px;border: 0 none;color: #FFFFFF;cursor: pointer;height: 52px;margin-top: 15px;text-indent: -20000px;width: 300px;}
+.reg-left-side .reg-content .my-btn-big {background: none repeat scroll 0 0 #32886B;border: 0 none;border-radius: 5px;color: #FFFFFF;cursor: pointer;font-size: 18px;height: 50px;width: 300px;}
+.reg-right-side{background: none repeat scroll 0 0 #fff;color: #666666;line-height: 28px;padding: 20px;width: 300px;float:left;border-radius: 3px;}
+.reg-right-side h2{color: #0061AB;font-size: 18px;font-weight: bold;line-height: 40px;}
+.reg-right-side p{margin: 10px 0;}
+.reg-right-side a {color: #007AD5;}
+
+
+/* 搜索页面CSS样式 */
+.container .search-tip {color: #7E7E7E;line-height: 50px;width: 947px;border-top: 1px solid #E4E4E4;font-size: 18px;padding-left: 33px;}
+.container .search-tip .highlight {color: #21936A;font-size: 18px;}
+.container .search-container{float:left;background-color: #FFFFFF;border: 1px solid #E4E4E4;border-bottom:none;border-radius: 5px;margin: 0 0 10px;width: 978px;}
+.container .search-container table th {
+	background-color: #FAFAFA;
+    border-bottom: 2px solid #EEEEEE;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #333;
+    height: 39px;
+	font-size:12px;
+	font-weight:bold;
+	line-height:39px;
+    text-align: left;
+	padding-left:10px;
+}
+.container .search-container table td{
+	border-bottom: 2px solid #EEEEEE;
+    color: #666666;
+    font-size: 14px;
+    height: 30px;
+	line-height:30px;
+    text-align: left;
+	padding-left:10px;
+	}
+.container .search-container a{color: #006DC0}
+.container .search-container dl dt,.container .search-container dl dd{border-bottom:2px solid #EEEEEE;width: 948px;height: 30px;overflow: hidden;}
+.container .search-container span{display:block;float:left;height:30px;line-height: 30px;color:#999999}
+.container .search-container dl dt{height: 35px;background-color: #FAFAFA;}
+.container .search-container dl dt span{height:35px;line-height: 35px;color:#333}
+.container .search-container .sear-tip{width:460px;}
+.container .search-container .sear-addr{width:97px;}
+.container .search-container .sear-time{width:97px;}
+.container .search-container .sear-data{width:100px;}
+.container .search-container .sear-class{width:97px;}
+.container .search-container .sear-baobiao{width:97px;}
+.container .search-container dd.search-pager {border:0;padding:0;width:948px;margin-top:20px;}
+.container .search-container dd.search-pager ul li {float: left;margin-right: 3px;}
+.container .search-container dd.search-pager ul li a, .container .search-container dd.search-pager ul li span {background: none repeat scroll 0 0 #EEEEEE;display: block;line-height: 24px;height:25px;padding: 0 8px;color: #999999;}
+.container .search-container dd.search-pager ul li.select span {background: none repeat scroll 0 0 #007AD5;color: #FFFFFF;line-height: 24px;height:25px;padding: 0 8px;}
+.container .search-container dd.search-pager ul li a:hover, .container .search-container dd.search-pager ul li.select span {background: none repeat scroll 0 0 #007AD5;color: #FFFFFF;line-height: 24px;height:25px;padding: 0 8px;}
+
+
+/* 分类页面CSS样式 */
+.main .toolTips {
+	width: 980px;
+	height:40px;
+	border-bottom: 1px solid #E4E4E4;
+	margin-bottom:0;
+}
+.main .toolTips .spaceMenu{
+	width:545px;
+	height:36px;
+	float:left;
+}
+.main .toolTips .mattblackmenu {
+    float: right;
+    height: 36px;
+    padding-top: 5px;
+	width:435px;
+}
+.mattblackmenu ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+.mattblackmenu li{
+	float:right;
+}
+.mattblackmenu li a {
+    color: #131313;
+    display: block;
+    float: left;
+    margin: 0;
+	height:36px;
+    text-decoration: none;
+	font-size:12px;
+	margin-left:10px
+}
+.mattblackmenu li a img {
+    display:block;
+	float:left;
+	margin-top:10px;
+	margin-right:5px
+}
+.mattblackmenu li a span {
+	line-height:36px;
+	display:block;
+	float:left;
+	margin-right:5px
+}
+.mattblackmenu li a img.downarrowpointer{
+	margin-top:18px
+}
+
+dl.user-ops-menu {
+    margin:0;
+	background-color: #fff;
+    position: absolute;
+    right: 223px;
+    top: 200px;
+    width: 100px;
+	border-radius: 5px;
+	border:1px solid #FF9900;
+	list-style:none;
+	display:none
+}
+dl.user-ops-menu dd a{
+	margin:0;
+	padding-left:10px;
+	width: 90px;
+	height: 30px;
+	line-height:30px;
+	display: block;
+}
+dl.user-ops-menu dd a:hover{
+	background-color: #ECECEC
+}
+
+
+
+.main-wraper .main .container .left-menu{
+	background-color: #FFFFFF;
+    border: 1px solid #E0E0E3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #DDDDDD;
+    float: left;
+   /*min-height:580px;*/
+	height:auto;
+    /*margin-bottom: 10px;*/
+	margin-right:16px;
+    width: 260px;
+}
+.main-wraper .main .container .left-menu .left-menu-banner{
+	background: url("../img/bg_sprite.gif") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top: 1px solid #E4E4E4;
+    height: 40px;
+    line-height: 40px;
+    width: 260px;
+	overflow:hidden;
+}
+.main-wraper .main .container .left-menu .left-menu-banner span{
+	color: #323232;
+    display: block;
+    float: left;
+    height: 40px;
+    padding-left: 20px;
+    text-align: left;
+    width: 240px;
+	font-weight: bold
+}
+.main-wraper .main .container .left-menu .left-menu-content{
+	width: 240px;
+	/*height: 520px;*/
+	height:auto;
+	float:left;
+	overflow:auto;
+	padding:10px 10px 0 10px;
+	overflow:hidden;
+}
+.main-wraper .main .container .left-menu .left-menu-content dl,.main-wraper .main .container .left-menu .left-menu-content dd{
+	margin:0;
+	padding:0;
+	border:0;
+}
+.main-wraper .main .container .left-menu .left-menu-content dd{
+	color: #666666;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+	width:100%;
+	overflow:hidden
+}
+.main-wraper .main .container .left-menu .left-menu-content dd.haveSons{
+	background: url("../img/thirdBg.png") no-repeat scroll -525px -68px rgba(0, 0, 0, 0);
+	font-weight:bold;
+}
+.main-wraper .main .container .left-menu .left-menu-content  dd.open{
+	background: url("../img/thirdBg.png") no-repeat scroll -525px -20px rgba(0, 0, 0, 0);
+}
+.main-wraper .main .container .left-menu .left-menu-content dl.text_node dd{
+	height:25px;
+	line-height:25px
+}
+.main-wraper .main .container .left-menu .left-menu-content dl.text_node dd a{
+    color: #666;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+
+
+
+.main-wraper .main .container .right-container{
+	background-color: #FFFFFF;
+    border: 1px solid #E0E0E3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #DDDDDD;
+    float: right;
+   /* min-height:580px;*/
+    margin-bottom: 10px;
+    width: 700px;
+	/*padding:10px;*/
+}
+.main-wraper .main .container .right-container #pictureHolder{
+	width: 700px;
+	height: 300px;
+	overflow:hidden;
+	float:left
+}
+.main-wraper .main .container .right-container #tableShow{
+	width: 700px;
+	min-height: 200px;
+	float:left;
+	/*overflow:auto;*/
+	overflow-x:auto;
+	margin-top:10px
+}
+.main-wraper .main .container .right-container #tableShow table{
+	padding:0;
+	margin:0;
+	width:700px;
+}
+.main-wraper .main .container .right-container #tableShow table th{
+	height: 35px;
+	border-bottom:2px solid #EEEEEE;
+	color:#333;
+	text-align:center;
+	background-color: #FAFAFA;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.main-wraper .main .container .right-container #tableShow table td{
+	height: 30px;
+	border-bottom:2px solid #EEEEEE;
+	color:#666;
+	font-size:14px;
+	text-align:center
+}
+.main-wraper .main .container .right-container #tableShow table .tr-first-td{
+	text-align:left;
+	padding-left:10px
+}
+.main-wraper .main .container .right-container #tableShow table .tr-last-td{
+}
+
+
+/* ---------- Pagination ---------- */
+
+div.pagination {
+	height: 20px;
+	float: right;
+	padding: 10px 0px;
+	background-color:#fff;
+}
+
+div.pagination a, div.pagination span {
+	height: 18px !important;
+	line-height: 18px !important;
+	display: inline;
+	float: left;
+	margin-left: 3px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	outline: none;
+	blr: expression(this.hideFocus = true);
+}
+
+div.pagination a {
+	padding: 0px 5px;
+	border: 1px solid #cccccc;
+}
+
+div.pagination a:hover {
+	border: 1px solid #fd6d01;
+	text-decoration: none;
+}
+
+div.pagination a.previousPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/list.gif) 0px -180px no-repeat;
+}
+
+div.pagination span.previousPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/list.gif) -30px -180px no-repeat;
+}
+
+div.pagination a.nextPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/list.gif) 0px -210px no-repeat;
+}
+
+div.pagination span.nextPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/list.gif) -30px -210px no-repeat;
+}
+
+div.pagination a.firstPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/list.gif) -60px -180px no-repeat;
+}
+
+div.pagination span.firstPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/list.gif) -90px -180px no-repeat;
+}
+
+div.pagination a.lastPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/list.gif) -60px -210px no-repeat;
+}
+
+div.pagination span.lastPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/list.gif) -90px -210px no-repeat;
+}
+
+div.pagination .currentPage {
+	padding: 0px 5px;
+	color: #fd6d01!important;
+	font-weight: bold;
+	cursor: default;
+	border: 1px solid #fd6d01;
+	background-color: #ffede1;
+}
+
+div.pagination .pageBreak {
+	padding: 0px 5px;
+	color: #3366cc;
+	cursor: default;
+}
+
+div.pagination .pageSkip {
+	vertical-align: middle;
+	padding: 0px 3px;
+	color: #666666;
+}
+
+div.pagination .pageSkip input {
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px 5px;
+	text-align: center;
+	vertical-align: top;
+	*vertical-align: middle;
+	ime-mode: disabled;
+	border: 1px solid #cccccc;
+}
+
+div.pagination .pageSkip button {
+	width: 20px;
+	height: 20px;
+	margin: 0px 0px 0px 5px;
+	vertical-align: top;
+	*vertical-align: middle;
+	cursor: pointer;
+	outline: none;
+	blr: expression(this.hideFocus = true);
+	border: none;
+	background: url(../images/list.gif) -120px -210px no-repeat;
+}

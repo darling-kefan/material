@@ -1,0 +1,2583 @@
+1111117731
+1111440
+7611
+3196
+array (
+  'authCode' => 3196,
+)7160
+array (
+  'authCode' => 7160,
+)4770
+array (
+  'authCode' => 4770,
+)4835
+array (
+  'authCode' => 4835,
+)5336
+array (
+  'authCode' => 5336,
+)1229
+array (
+  'authCode' => 1229,
+)5983
+array (
+  'authCode' => 5983,
+)2439
+array (
+  'authCode' => 2439,
+)3020
+array (
+  'authCode' => 3020,
+)6531
+array (
+  'authCode' => 6531,
+)2486
+array (
+  'authCode' => 2486,
+)2700
+array (
+  'authCode' => 2700,
+)9885
+array (
+  'authCode' => 9885,
+)4586
+array (
+  'authCode' => 4586,
+)7085
+array (
+  'authCode' => 7085,
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '31',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,31',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '32',
+    'qcname' => '农业',
+    'ancestors' => '0,32',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '35',
+    'qcname' => '农林牧渔业总产值',
+    'ancestors' => '0,32,35',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '33',
+    'qcname' => '工业',
+    'ancestors' => '0,33',
+    'order' => '1',
+    'level' => 0,
+  ),
+  4 => 
+  array (
+    'qcid' => '36',
+    'qcname' => '主要工业产品的销售与库存',
+    'ancestors' => '0,33,36',
+    'order' => '1',
+    'level' => 1,
+  ),
+  5 => 
+  array (
+    'qcid' => '34',
+    'qcname' => '建筑业',
+    'ancestors' => '0,34',
+    'order' => '1',
+    'level' => 0,
+  ),
+  6 => 
+  array (
+    'qcid' => '37',
+    'qcname' => '建筑业总产值',
+    'ancestors' => '0,34,37',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '38',
+    'qcname' => '建筑业企业总收入',
+    'ancestors' => '0,34,38',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '39',
+    'qcname' => '建筑业企业利润',
+    'ancestors' => '0,34,39',
+    'order' => '1',
+    'level' => 1,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '46',
+    'qcname' => '综合',
+    'ancestors' => '0,46',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '47',
+    'qcname' => '人口',
+    'ancestors' => '0,47',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '48',
+    'qcname' => '能源',
+    'ancestors' => '0,48',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '49',
+    'qcname' => '财政',
+    'ancestors' => '0,49',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '46',
+    'qcname' => '综合',
+    'ancestors' => '0,46',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '47',
+    'qcname' => '人口',
+    'ancestors' => '0,47',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '48',
+    'qcname' => '能源',
+    'ancestors' => '0,48',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '49',
+    'qcname' => '财政',
+    'ancestors' => '0,49',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '31',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,31',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '32',
+    'qcname' => '农业',
+    'ancestors' => '0,32',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '35',
+    'qcname' => '农林牧渔业总产值',
+    'ancestors' => '0,32,35',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '33',
+    'qcname' => '工业',
+    'ancestors' => '0,33',
+    'order' => '1',
+    'level' => 0,
+  ),
+  4 => 
+  array (
+    'qcid' => '36',
+    'qcname' => '主要工业产品的销售与库存',
+    'ancestors' => '0,33,36',
+    'order' => '1',
+    'level' => 1,
+  ),
+  5 => 
+  array (
+    'qcid' => '34',
+    'qcname' => '建筑业',
+    'ancestors' => '0,34',
+    'order' => '1',
+    'level' => 0,
+  ),
+  6 => 
+  array (
+    'qcid' => '37',
+    'qcname' => '建筑业总产值',
+    'ancestors' => '0,34,37',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '38',
+    'qcname' => '建筑业企业总收入',
+    'ancestors' => '0,34,38',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '39',
+    'qcname' => '建筑业企业利润',
+    'ancestors' => '0,34,39',
+    'order' => '1',
+    'level' => 1,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '31',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,31',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '32',
+    'qcname' => '农业',
+    'ancestors' => '0,32',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '35',
+    'qcname' => '农林牧渔业总产值',
+    'ancestors' => '0,32,35',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '33',
+    'qcname' => '工业',
+    'ancestors' => '0,33',
+    'order' => '1',
+    'level' => 0,
+  ),
+  4 => 
+  array (
+    'qcid' => '36',
+    'qcname' => '主要工业产品的销售与库存',
+    'ancestors' => '0,33,36',
+    'order' => '1',
+    'level' => 1,
+  ),
+  5 => 
+  array (
+    'qcid' => '34',
+    'qcname' => '建筑业',
+    'ancestors' => '0,34',
+    'order' => '1',
+    'level' => 0,
+  ),
+  6 => 
+  array (
+    'qcid' => '37',
+    'qcname' => '建筑业总产值',
+    'ancestors' => '0,34,37',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '38',
+    'qcname' => '建筑业企业总收入',
+    'ancestors' => '0,34,38',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '39',
+    'qcname' => '建筑业企业利润',
+    'ancestors' => '0,34,39',
+    'order' => '1',
+    'level' => 1,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '8',
+    'qcname' => '综合',
+    'ancestors' => '0,8',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '16',
+    'qcname' => '行政区划',
+    'ancestors' => '0,8,16',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '17',
+    'qcname' => '法人单位数',
+    'ancestors' => '0,8,17',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '18',
+    'qcname' => '人均主要工农业产品产量',
+    'ancestors' => '0,8,18',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '9',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,9',
+    'order' => '2',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '19',
+    'qcname' => '国内生产总值',
+    'ancestors' => '0,9,19',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '20',
+    'qcname' => '第三产业增长指数',
+    'ancestors' => '0,9,20',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '10',
+    'qcname' => '人口',
+    'ancestors' => '0,10',
+    'order' => '1',
+    'level' => 0,
+  ),
+  8 => 
+  array (
+    'qcid' => '11',
+    'qcname' => '就业人员和工资',
+    'ancestors' => '0,11',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '12',
+    'qcname' => '固定资产投资和房地产',
+    'ancestors' => '0,12',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '13',
+    'qcname' => '对外经济贸易',
+    'ancestors' => '0,13',
+    'order' => '1',
+    'level' => 0,
+  ),
+  11 => 
+  array (
+    'qcid' => '14',
+    'qcname' => '能源',
+    'ancestors' => '0,14',
+    'order' => '1',
+    'level' => 0,
+  ),
+  12 => 
+  array (
+    'qcid' => '15',
+    'qcname' => '财政',
+    'ancestors' => '0,15',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '8',
+    'qcname' => '综合',
+    'ancestors' => '0,8',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '16',
+    'qcname' => '行政区划',
+    'ancestors' => '0,8,16',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '17',
+    'qcname' => '法人单位数',
+    'ancestors' => '0,8,17',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '18',
+    'qcname' => '人均主要工农业产品产量',
+    'ancestors' => '0,8,18',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '9',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,9',
+    'order' => '2',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '19',
+    'qcname' => '国内生产总值',
+    'ancestors' => '0,9,19',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '20',
+    'qcname' => '第三产业增长指数',
+    'ancestors' => '0,9,20',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '10',
+    'qcname' => '人口',
+    'ancestors' => '0,10',
+    'order' => '1',
+    'level' => 0,
+  ),
+  8 => 
+  array (
+    'qcid' => '11',
+    'qcname' => '就业人员和工资',
+    'ancestors' => '0,11',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '12',
+    'qcname' => '固定资产投资和房地产',
+    'ancestors' => '0,12',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '13',
+    'qcname' => '对外经济贸易',
+    'ancestors' => '0,13',
+    'order' => '1',
+    'level' => 0,
+  ),
+  11 => 
+  array (
+    'qcid' => '14',
+    'qcname' => '能源',
+    'ancestors' => '0,14',
+    'order' => '1',
+    'level' => 0,
+  ),
+  12 => 
+  array (
+    'qcid' => '15',
+    'qcname' => '财政',
+    'ancestors' => '0,15',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '50',
+    'qcname' => '价格',
+    'ancestors' => '0,50',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '51',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,51',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '52',
+    'qcname' => '人口和就业',
+    'ancestors' => '0,52',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '8',
+    'qcname' => '综合',
+    'ancestors' => '0,8',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '16',
+    'qcname' => '行政区划',
+    'ancestors' => '0,8,16',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '17',
+    'qcname' => '法人单位数',
+    'ancestors' => '0,8,17',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '18',
+    'qcname' => '人均主要工农业产品产量',
+    'ancestors' => '0,8,18',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '9',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,9',
+    'order' => '2',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '19',
+    'qcname' => '国内生产总值',
+    'ancestors' => '0,9,19',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '20',
+    'qcname' => '第三产业增长指数',
+    'ancestors' => '0,9,20',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '10',
+    'qcname' => '人口',
+    'ancestors' => '0,10',
+    'order' => '1',
+    'level' => 0,
+  ),
+  8 => 
+  array (
+    'qcid' => '11',
+    'qcname' => '就业人员和工资',
+    'ancestors' => '0,11',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '12',
+    'qcname' => '固定资产投资和房地产',
+    'ancestors' => '0,12',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '13',
+    'qcname' => '对外经济贸易',
+    'ancestors' => '0,13',
+    'order' => '1',
+    'level' => 0,
+  ),
+  11 => 
+  array (
+    'qcid' => '14',
+    'qcname' => '能源',
+    'ancestors' => '0,14',
+    'order' => '1',
+    'level' => 0,
+  ),
+  12 => 
+  array (
+    'qcid' => '15',
+    'qcname' => '财政',
+    'ancestors' => '0,15',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '46',
+    'qcname' => '综合',
+    'ancestors' => '0,46',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '47',
+    'qcname' => '人口',
+    'ancestors' => '0,47',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '48',
+    'qcname' => '能源',
+    'ancestors' => '0,48',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '49',
+    'qcname' => '财政',
+    'ancestors' => '0,49',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '44',
+    'qcname' => '国内经济核算',
+    'ancestors' => '0,44',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '45',
+    'qcname' => '人民生活',
+    'ancestors' => '0,45',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '8',
+    'qcname' => '综合',
+    'ancestors' => '0,8',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '16',
+    'qcname' => '行政区划',
+    'ancestors' => '0,8,16',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '17',
+    'qcname' => '法人单位数',
+    'ancestors' => '0,8,17',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '18',
+    'qcname' => '人均主要工农业产品产量',
+    'ancestors' => '0,8,18',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '9',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,9',
+    'order' => '2',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '19',
+    'qcname' => '国内生产总值',
+    'ancestors' => '0,9,19',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '20',
+    'qcname' => '第三产业增长指数',
+    'ancestors' => '0,9,20',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '10',
+    'qcname' => '人口',
+    'ancestors' => '0,10',
+    'order' => '1',
+    'level' => 0,
+  ),
+  8 => 
+  array (
+    'qcid' => '11',
+    'qcname' => '就业人员和工资',
+    'ancestors' => '0,11',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '12',
+    'qcname' => '固定资产投资和房地产',
+    'ancestors' => '0,12',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '13',
+    'qcname' => '对外经济贸易',
+    'ancestors' => '0,13',
+    'order' => '1',
+    'level' => 0,
+  ),
+  11 => 
+  array (
+    'qcid' => '14',
+    'qcname' => '能源',
+    'ancestors' => '0,14',
+    'order' => '1',
+    'level' => 0,
+  ),
+  12 => 
+  array (
+    'qcid' => '15',
+    'qcname' => '财政',
+    'ancestors' => '0,15',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '31',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,31',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '32',
+    'qcname' => '农业',
+    'ancestors' => '0,32',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '35',
+    'qcname' => '农林牧渔业总产值',
+    'ancestors' => '0,32,35',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '33',
+    'qcname' => '工业',
+    'ancestors' => '0,33',
+    'order' => '1',
+    'level' => 0,
+  ),
+  4 => 
+  array (
+    'qcid' => '36',
+    'qcname' => '主要工业产品的销售与库存',
+    'ancestors' => '0,33,36',
+    'order' => '1',
+    'level' => 1,
+  ),
+  5 => 
+  array (
+    'qcid' => '34',
+    'qcname' => '建筑业',
+    'ancestors' => '0,34',
+    'order' => '1',
+    'level' => 0,
+  ),
+  6 => 
+  array (
+    'qcid' => '37',
+    'qcname' => '建筑业总产值',
+    'ancestors' => '0,34,37',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '38',
+    'qcname' => '建筑业企业总收入',
+    'ancestors' => '0,34,38',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '39',
+    'qcname' => '建筑业企业利润',
+    'ancestors' => '0,34,39',
+    'order' => '1',
+    'level' => 1,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '31',
+    'qcname' => '国民经济核算',
+    'ancestors' => '0,31',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '32',
+    'qcname' => '农业',
+    'ancestors' => '0,32',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '35',
+    'qcname' => '农林牧渔业总产值',
+    'ancestors' => '0,32,35',
+    'order' => '1',
+    'level' => 1,
+  ),
+  3 => 
+  array (
+    'qcid' => '33',
+    'qcname' => '工业',
+    'ancestors' => '0,33',
+    'order' => '1',
+    'level' => 0,
+  ),
+  4 => 
+  array (
+    'qcid' => '36',
+    'qcname' => '主要工业产品的销售与库存',
+    'ancestors' => '0,33,36',
+    'order' => '1',
+    'level' => 1,
+  ),
+  5 => 
+  array (
+    'qcid' => '34',
+    'qcname' => '建筑业',
+    'ancestors' => '0,34',
+    'order' => '1',
+    'level' => 0,
+  ),
+  6 => 
+  array (
+    'qcid' => '37',
+    'qcname' => '建筑业总产值',
+    'ancestors' => '0,34,37',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '38',
+    'qcname' => '建筑业企业总收入',
+    'ancestors' => '0,34,38',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '39',
+    'qcname' => '建筑业企业利润',
+    'ancestors' => '0,34,39',
+    'order' => '1',
+    'level' => 1,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '40',
+    'qcname' => '价格指数',
+    'ancestors' => '0,40',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '41',
+    'qcname' => '工业',
+    'ancestors' => '0,41',
+    'order' => '1',
+    'level' => 0,
+  ),
+  2 => 
+  array (
+    'qcid' => '42',
+    'qcname' => '房地产',
+    'ancestors' => '0,42',
+    'order' => '1',
+    'level' => 0,
+  ),
+  3 => 
+  array (
+    'qcid' => '43',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,43',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+  1 => 
+  array (
+    'qcid' => '26',
+    'qcname' => '工业生产者购进价格指数',
+    'ancestors' => '0,21,26',
+    'order' => '1',
+    'level' => 1,
+  ),
+  2 => 
+  array (
+    'qcid' => '53',
+    'qcname' => '工业指标测试',
+    'ancestors' => '0,21,26,53',
+    'order' => '1',
+    'level' => 2,
+  ),
+  3 => 
+  array (
+    'qcid' => '27',
+    'qcname' => '商品零售价格分类指数',
+    'ancestors' => '0,21,27',
+    'order' => '1',
+    'level' => 1,
+  ),
+  4 => 
+  array (
+    'qcid' => '22',
+    'qcname' => '工业',
+    'ancestors' => '0,22',
+    'order' => '1',
+    'level' => 0,
+  ),
+  5 => 
+  array (
+    'qcid' => '28',
+    'qcname' => '工业增加值增长速度',
+    'ancestors' => '0,22,28',
+    'order' => '1',
+    'level' => 1,
+  ),
+  6 => 
+  array (
+    'qcid' => '29',
+    'qcname' => '工业主要产品产量',
+    'ancestors' => '0,22,29',
+    'order' => '1',
+    'level' => 1,
+  ),
+  7 => 
+  array (
+    'qcid' => '30',
+    'qcname' => '工业企业主要经济指标',
+    'ancestors' => '0,22,30',
+    'order' => '1',
+    'level' => 1,
+  ),
+  8 => 
+  array (
+    'qcid' => '23',
+    'qcname' => '房地产',
+    'ancestors' => '0,23',
+    'order' => '1',
+    'level' => 0,
+  ),
+  9 => 
+  array (
+    'qcid' => '24',
+    'qcname' => '国内贸易',
+    'ancestors' => '0,24',
+    'order' => '1',
+    'level' => 0,
+  ),
+  10 => 
+  array (
+    'qcid' => '25',
+    'qcname' => '对外经济',
+    'ancestors' => '0,25',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '价格指数',
+    'ancestors' => '0,21',
+    'order' => '1',
+    'level' => 0,
+  ),
+)array (
+  0 => 
+  array (
+    'qcid' => '21',
+    'qcname' => '主要污染物排放',
+    'ancestors' => ',21',
+    'order' => '1',
+    'level' => 0,
+  ),
+)

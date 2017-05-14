@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+table{width:100%;background:#ababab;}
+table th,table td{padding-left:3px;}
+table th input{ vertical-align:middle;margin-right:4px;}
+table th{background:#f3f3f3;height:24px; line-height:24px;}
+table td{background:#FFF; vertical-align:top; height:24px; line-height:24px;text-align:left}
+table td p input{ vertical-align:middle;margin-right:4px;}
+.linep{text-align:left}
+/*修改用户*/
+#main .linediv #typelist{height:85px;}
+#main .linediv #typelist span{ line-height:15px;}

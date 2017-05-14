@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>导出Excel预览</title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/list.js"></script>
+<style type="text/css">
+.moreTable th {
+	width: 80px;
+	line-height: 25px;
+	padding: 5px 10px 5px 0px;
+	text-align: right;
+	font-weight: normal;
+	color: #333333;
+	background-color: #f8fbff;
+}
+
+.moreTable td {
+	line-height: 25px;
+	padding: 5px;
+	color: #666666;
+}
+
+.promotion {
+	color: #cccccc;
+}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $listForm = $("#listForm");
+
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		导出Excel预览
+	</div>
+	<form id="form" action="admin.php?app=materialTable&act=exportExcel" method="POST">
+		<input type="hidden" id="tableID" name="tableID" value="<%{$tableID}%>" />
+		<input type="hidden" id="tmpFile" name="tmpFile" value="<%{$tmpFile}%>" />
+		<table id="listTable" class="list">
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<%{foreach from=$bannerArr item=cell_id}%>
+				<th>
+					<a href="javascript:;" name="<%{$cell_id}%>"><%{$cell_id}%></a>
+				</th>
+				<%{/foreach}%>
+			</tr>
+				<tr>
+					<td>
+						1
+					</td>
+					<td colspan="100">
+						<input type="text" name="captain" class="text" value="<%{$tableComment}%>" maxlength="200" style="width:400px"  />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						2
+					</td>
+					<%{foreach name=titleShow from=$titleArr item=title}%>
+					<td>
+						<input type="text" name="title[]" class="text" value="<%{$title}%>" maxlength="100"  />
+					</td>
+					<%{/foreach}%>
+				</tr>
+				<%{foreach name=allData from=$records key=rowId item=rowInfo}%>
+				<tr>
+					<td>
+						<%{$smarty.foreach.allData.index+3}%>
+					</td>
+					<%{foreach name=oneRow from=$rowInfo key=cellId item=cellInfo}%>
+					<td>
+						<%{$cellInfo}%>
+					</td>
+					<%{/foreach}%>
+				</tr>
+				<%{/foreach}%>
+		</table>
+		
+		<table class="input">
+			</tr>
+				<tr>
+					<th>
+						&nbsp;
+					</th>
+					<td>
+						
+					</td>
+			</tr>
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td>
+					<input type="submit" class="button" value="导出/下载" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=getTablesList'" />
+				</td>
+			</tr>
+			</tr>
+				<tr>
+					<th>
+						&nbsp;
+					</th>
+					<td>
+						
+					</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

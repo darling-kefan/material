@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ *登陆页面--------login.html
+ */
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(images/loginBg.png) repeat;
+}
+#header{
+	width:100%;
+	height:120px;
+	background:#417eb7;
+}
+#loginLogo{
+	background:url(images/loginLogo.png) left bottom no-repeat;
+	width:980px;
+	height:90%;
+	margin:0 auto;
+}
+#loginBody{
+	width:960px;
+	height:303px;
+	border:1px solid #99bad9;
+	margin:30px auto;
+}
+#loginPic{
+	float:left;
+	background:url(images/loginPic.jpg);
+	width:454px;
+	height:301px;
+	margin:1px;
+}
+#loginForm{
+	width:500px;
+	height:301px;	
+	margin:1px;
+	float:left;
+}
+#loginTable{
+	width:400px;
+	margin:0px auto;
+	font-size:12px;
+	margin-top:25px;
+}
+#footer{
+	border-top:1px solid #99bad9;
+	width:960px;
+	text-align:center;
+	color:#417eb7;
+	padding-top:20px;
+}
+#firstloginMsg{
+	margin-left:20px;
+	color:#F00;
+	font-weight:normal;
+	float:right;
+	line-height:30px;
+}
+#loginTable .formtype{
+	text-align:left;
+	width:62px;
+	padding-bottom:20px;
+	padding-left:15px;
+}
+.textinput{
+	width:250px;
+	height:30px;
+	border:1px solid #bebebe;
+	line-height:10px;line-height:25px\0;
+	color:#000;
+}
+#randcode{
+	width:100px;
+}
+.submsg{
+	margin-top:0px;
+	margin-bottom:5px;
+}
+#randcodeMsg{
+	height:25px;
+	display:block;
+	margin-top:5px;
+	color:#F00;
+}
+.textMsg{
+	display:block;
+	height:15px;
+	margin-top:5px;
+	color:#F00;
+	font-size:12px;
+}
+#pwtext{
+	position:absolute;
+}
+#changekCode{
+	color:#4E9845;
+}
+#subBtn{
+	background:url(images/loginBtn.png) no-repeat;
+	width:87px;
+	height:31px;
+	border:none;
+	cursor:pointer;
+}
+#subBtn:hover{
+	background:url(images/loginBtn_hover.png) no-repeat;
+}
+#headerTitle{
+	background:url(images/loginTitle.png) no-repeat;
+	width:250px;
+	height:32px;
+	font-size:20px;
+	font-weight:bold;
+	margin-left:20px;
+	margin-top:25px;
+	text-align:left;
+}

@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+#passwordUpdate{
+	margin-top:50px;
+}
+.msgtd{
+	width:220px;
+}
+.ok{padding-left:22px; background-position:center}
+.error{padding-left:22px;background-position:center}

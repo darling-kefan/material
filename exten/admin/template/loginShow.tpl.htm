@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link type="text/css" rel="stylesheet" href="exten/admin/template/style/default/images/style.css">
+<link type="text/css" rel="stylesheet" href="exten/admin/template/style/default/images/login.css">
+<script type="text/javascript" src="exten/admin/template/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery-md5.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/function.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/login.js"></script>
+</head>
+
+<body>
+<div id="loginContent">
+	<div id="header">
+    	<div id="loginLogo"></div>
+    </div>
+    <div id="loginBody">
+    	<div id="loginPic"></div>
+        <div id="loginForm">
+            <div id="headerTitle">
+                <span id="firstloginMsg"></span>
+            </div>
+            <form method="post" id="form1" name="form1">
+            <table id="loginTable">
+                    <tr>
+                        <td class="formtype">用户名：</td>
+                        <td class="formelements">
+                            <input type="text" name="passport" maxlength="24"  id="username" class="textinput">
+                            <span id="usernameMsg" class="textMsg"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="formtype">密码：</td>
+                        <td class="formelements">
+                            <input type="hidden" name="password" id="pwmd5">
+                            <input type="password" id="pwinput" class="textinput" ><span  id="pwMsg" class="textMsg"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="formtype">验证码：</td>
+                        <td class="formelements">
+                            <input type="text" name="authcode" size="5" class="textinput" id="randcode">
+                            <img id="verPic" src="?app=login&act=getAuthImage" class="vertical"/> <a href="#" id="changekCode" class="vertical">看不清，换一张</a>
+                            <span class="textMsg" id="randcodeMsg"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="formtype"></td>
+                        <td class="formelements"></span><input type="button" onclick="loginSubmit('form1')" id="subBtn"></td>
+                    </tr>
+                </table>
+                </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

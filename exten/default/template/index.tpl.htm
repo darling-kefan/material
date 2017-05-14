@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><%{$_Title}%></title>
+<link href="exten/default/template/css/base.css" rel="stylesheet" type="text/css" /> 
+<link href="exten/default/template/css/class.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript" src="exten/default/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/default/template/js/common.js"></script>
+<script type="text/javascript" src="exten/default/template/js/list.js"></script>
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.pie.js"></script>
+<script language="javascript" type="text/javascript" src="plugin/flot/jquery.flot.categories.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="plugin/flot/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript">
+$().ready(function() {
+	//初始化隐藏图表展示区
+	$("#flotArea").hide();
+
+	//分类弹出层
+	$("div.g-main-nav ul li").mouseover( function() {
+		var $popupMenu = $(this).children("dl");
+		$popupMenu.show();
+		$(this).css("background-color", "#F9F9F9");
+		$(this).mouseleave(function() {
+			$popupMenu.hide();
+		});
+	});
+	
+	//图标管理弹出层
+	$("#graphicsBtn").mouseover( function() {
+		var $this = $(this);
+		var $popupMenu = $this.children("dl.graphicsBtn-layer");
+		$popupMenu.show();
+		$this.mouseleave(function() {
+			$popupMenu.hide();
+		});
+	});
+	
+	var $plot = $("#plot");//作图按钮
+	var $cancelPlot = $("#cancelPlot");//取消作图按钮
+	//取消作图
+	$cancelPlot.click(function(){
+		$("#flotArea").hide();
+	});
+	
+	// 图形展示
+	$plot.click(function() {
+		$.dialog({
+			title: "图表设置",
+			content: ' <table id="shapeSelect" class="shapeSelect"> <tr> <th> <img src="exten/default/template/img/icon_point.jpg" \/><br \/><input type="radio" name="shape" value="1" \/>曲线图 <\/th> <th> <img src="exten/default/template/img/icon_bar.jpg" \/><br \/><input type="radio" name="shape" value="2" \/>柱状图 <\/th> <th> <img src="exten/default/template/img/icon_pie.jpg" \/><br \/><input type="radio" name="shape" value="3" \/>饼状图  </th> <\/tr> <\/table>',
+			width: 470,
+			modal: true,
+			ok: "确&nbsp;&nbsp;定",
+			cancel: "取&nbsp;&nbsp;消",
+			
+			onOk: function() {
+				var shapeVal = $("input:radio[name='shape']:checked").val();
+				if (shapeVal) {
+					_selectRow(shapeVal);
+				}
+			}
+		});
+	});
+
+	var _selectRow = function(shapeVal){
+		if (shapeVal) {
+			var classid = $("#classid").val();
+			var tid     = $("#tid").val();
+
+			var handlerReceivedData = function(acceptData) {
+				//console.log(acceptData);
+				if (acceptData.data) {
+					$("#flotArea").show();
+					
+					if (acceptData.plotType == 1) {
+						$("#flotArea").css("height","380px");
+						$("#flotholder").css("height","280px");
+						
+						var buttonHolderMsg = '<ul>';
+						$.each(acceptData.data, function(i,onePlotData){
+							if (i == 0) {
+								$("#titleholder").html(onePlotData.label);
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" checked="checked" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							} else {
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							}
+						});
+						buttonHolderMsg += '</ul>';
+						$("#buttonholder").html(buttonHolderMsg);
+
+						var options = {
+							lines: {
+								show: true,
+							},
+							points: {
+								show: true
+							},
+							xaxis: {
+								ticks: acceptData.xaxis,
+								//ticks: acceptData.xaxis.ticks,
+								//min: acceptData.xaxis.min,
+								//max: acceptData.xaxis.max,
+								labelHeight:30,
+							},
+							grid: {
+								hoverable: true,
+								autoHighlight: true
+							},
+							legend: {
+								show: false,
+								//noColumns: 5
+							},
+						};
+						$.plot("#flotholder", [acceptData.data[0]], options);
+
+						//radio重新绑定事件
+						$("input:radio[name='selectPlotBtn']").on("click",function(){
+							var selectPlotBtnVal = $("input:radio[name='selectPlotBtn']:checked").val();
+							$("#titleholder").html($(this).attr('rel'));
+							$.plot("#flotholder", [acceptData.data[selectPlotBtnVal]], options);
+						});
+						/*
+						$("input:checkbox[name='selectPlotBtn']").on("click",function(){
+							var selectPlotBtnVal = $("input:radio[name='selectPlotBtn']:checked").serialize().replace(/selectPlotBtn=/g,'').split('&');
+
+							var newShowData = [];
+							$.each(selectPlotBtnVal,function(k,v){
+								newShowData.push(acceptData.data[v]);
+							});
+
+							$.plot("#flotholder", newShowData, options);
+						});
+						*/
+					} else if (acceptData.plotType == 2) {
+						$("#flotArea").css("height","380px");
+						$("#flotholder").css("height","280px");
+						
+						var buttonHolderMsg = '<ul>';
+						$.each(acceptData.data, function(i,onePlotData){
+							if (i == 0) {
+								$("#titleholder").html(onePlotData.label);
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" checked="checked" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							} else {
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							}
+						});
+						buttonHolderMsg += '</ul>';
+						$("#buttonholder").html(buttonHolderMsg);
+
+						var options = {
+							colors: ["#d18b2c", "#dba255", "#919733"],
+							series: {
+								bars: {
+									show: true,
+									barWidth: 0.6,
+									align: "center",
+									fill: true,
+									fillColor: "#dba255",
+								},
+							},
+							xaxis: {
+								mode: "categories",
+								tickLength: 0
+							},
+							grid: {
+								labelMargin:10,
+								borderWidth:1,
+								tickLabel:3,
+								hoverable: true
+							},
+							legend: {
+								show: false,
+								//noColumns: 5
+							},
+						};
+						$.plot("#flotholder", [acceptData.data[0]], options);
+
+						//radio重新绑定事件
+						$("input:radio[name='selectPlotBtn']").on("click",function(){
+							var selectPlotBtnVal = $("input:radio[name='selectPlotBtn']:checked").val();
+							$("#titleholder").html($(this).attr('rel'));
+							$.plot("#flotholder", [acceptData.data[selectPlotBtnVal]], options);
+						});
+					} else if (acceptData.plotType == 3) {
+						$("#flotArea").css("height","600px");
+						$("#flotholder").css("height","500px");
+						
+						var buttonHolderMsg = '<ul>';
+						$.each(acceptData.data, function(i,onePlotData){
+							if (i == 0) {
+								$("#titleholder").html(onePlotData.label);
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" checked="checked" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							} else {
+								buttonHolderMsg += '<li><input type="radio" name="selectPlotBtn" rel="'+onePlotData.label+'" value="'+ i +'">'+ onePlotData.label +'</input></li>';
+							}
+						});
+						buttonHolderMsg += '</ul>';
+						$("#buttonholder").html(buttonHolderMsg);
+
+						var options = {
+							series: {
+								pie: { 
+									show: true,
+									radius: 1,
+									label: {
+										show: true,
+										radius: 1,
+										formatter: labelFormatter,
+										background: {
+											opacity: 0.8
+										}
+									}
+								}
+							},
+							legend: {
+								show: false
+							}
+						};
+						$.plot("#flotholder", acceptData.data[0].data, options);
+
+						//radio重新绑定事件
+						$("input:radio[name='selectPlotBtn']").on("click",function(){
+							var selectPlotBtnVal = $("input:radio[name='selectPlotBtn']:checked").val();
+							$("#titleholder").html($(this).attr('rel'));
+							$.plot("#flotholder", acceptData.data[selectPlotBtnVal].data, options);
+						});
+					}
+				}
+			};
+
+			//异步获取图表数据
+			var dataurl = "index.php?app=default&act=asyncPlotData&classid="+classid+"&tid="+tid+"&shapeVal="+shapeVal;
+			$.ajax({
+				url: dataurl,
+				type: "POST",
+				dataType: "json",
+				success: handlerReceivedData
+			});			
+		}
+	};
+
+	function showTooltip(x, y, contents) {
+		$("<div id='tooltip'>" + contents + "</div>").css({
+			position: "absolute",
+			display: "none",
+			top: y + 5,
+			left: x + 5,
+			border: "2px solid #4572A7",
+			padding: "3px",
+			"line-height": "18px",
+			"background-color": "#fff",
+			"padding":"0 5px",
+			opacity: 0.80
+		}).appendTo("body").fadeIn(200);
+	}
+
+	//绑定hover事件
+	var previousPoint = null;
+	$("#flotholder").bind("plothover", function (event, pos, item) {
+		$("#tooltip").remove();
+		if (item != undefined) {
+			if (previousPoint != item.dataIndex) {
+				var previousPoint = item.dataIndex;
+				var x = item.datapoint[0],y = item.datapoint[1];
+				
+				var tipsItem = null;
+				if (item.series.xaxis.ticks[previousPoint].label) {
+					tipsItem = item.series.xaxis.ticks[previousPoint].label;
+				} 
+				var label = item.series.label;
+				if (label) {
+					showTooltip(item.pageX, item.pageY, "<font style='font-size:12px; font-weight:bold;'>" + label + "</font><br /><font style='font-size:12px'>" + tipsItem + "</font> <font style='font-weight:bold; font-size:12px'>数值：</font><font style='font-weight:bold; font-size:14px'>" + y + "</font>");
+				} else {
+					showTooltip(item.pageX, item.pageY, "<font style='font-size:12px'>" + tipsItem + "</font> <font style='font-weight:bold; font-size:12px'>数值：</font><font style='font-weight:bold; font-size:14px'>" + y + "</font>");
+				}
+			}
+		} else {
+			$("#tooltip").remove();
+			previousPoint = null;            
+		}
+	});
+
+	//饼状图事件
+	function labelFormatter(label, series) {
+		console.log(label);
+		console.log(series);
+		return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+	}
+
+	/**
+	*左边栏
+	**/
+	$("#left_selection").animate({"left":"-185px"},1000);
+	$("#left_selection_button").on("click",function(){
+	  if($("#left_selection").css("left")=="-185px"){
+		$("#left_selection").animate({
+		  "left":"0px"
+		},800,function(){
+		  $("#left_selection_button").html("收<br />起<br />&lt;&lt;");
+		});		  
+	  }else{
+		$("#left_selection").animate({
+		  "left":"-185px"
+		},800,function(){
+		  $("#left_selection_button").html("展<br />开<br />&gt;&gt;");
+		});		  
+	  }
+	});
+	
+});
+</script>
+
+</head>
+
+<body>
+
+<%{include file='_main/header.tpl.htm'}%>
+
+<div class="main-wraper">
+	<div class="main">
+		<form id="listForm" method="get" action="index.php">
+		<div class="relevance">
+			<ul>
+				<li class="refresh">
+					<%{$basicInfo.tableComment}%>
+					<input name="classid" id="classid" value="<%{$basicInfo.classid}%>" type="hidden">
+					<input name="tid" id="tid" value="<%{$basicInfo.tableID}%>" type="hidden">
+					<!-- 
+					<button value="">刷新</button>
+					 -->
+				</li>
+				<li id="graphicsBtn" class="graphicsBtn">
+					图表管理
+					<dl class="graphicsBtn-layer" style="display:none">
+						<dd class="openGraphics" id="plot">作图</dd>
+						<dd class="closeGraphics" id="cancelPlot">取消作图</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<div class="mainContainer">
+			
+			<div class="tableContainer">
+				
+				<div id="flotArea" class="flotArea">
+					<div id="titleholder" class="titleholder"></div>
+					<div id="flotholder" class="flotholder"></div>
+					<div id="buttonholder" class="buttonholder"></div>
+				</div>
+				
+				<table id="listTable">
+					<tbody>
+					<tr>
+					<%{section name=fieldInfo loop=$fieldsInfo}%>
+					<th>
+						<a href="javascript:;" class="sort" name="<%{$fieldsInfo[fieldInfo].fname}%>"><%{$fieldsInfo[fieldInfo].fcomment}%><%{if $fieldsInfo[fieldInfo].unit neq ''}%>（<%{$fieldsInfo[fieldInfo].unit}%>）<%{/if}%></a>
+					</th>
+					<%{/section}%>
+					</tr>
+					
+					<%{section name=recordInfo loop=$recordsList}%>
+					<tr>
+						<%{foreach name=record key=key item=item from=$recordsList[recordInfo]}%>
+						<%{if $smarty.foreach.record.index eq 0}%>
+						
+						<%{elseif $smarty.foreach.record.index gt $basicInfo.fieldCount}%>
+						
+						<%{else}%>
+						<td>
+							<%{$item}%>
+						</td>
+						<%{/if}%>
+						<%{/foreach}%>
+					</tr>
+					<%{/section}%>
+					</tbody>
+				</table>
+				<%{$basicInfo.showPage}%>
+			</div>
+			
+		</div>
+		
+		<input id="app" type="hidden" value="default" name="app">
+		<input id="act" type="hidden" value="index" name="act">
+		<input id="pageSize" type="hidden" value="10" name="pageSize">
+		<input id="orderProperty" type="hidden" value="<%{$basicInfo.orderProperty}%>" name="orderProperty">
+		<input id="orderDirection" type="hidden" value="<%{$basicInfo.orderDirection}%>" name="orderDirection">
+		</form>
+	</div>
+</div>
+
+<div id="left_selection" class="left_selection" style="left: 0px;">
+	<div id="left_selection_main" class="left_selection_main">
+		<div class="title"> 原料表选择 </div>
+		<%{foreach from=$allTables item=tableInfo}%>
+		<a href="index.php?classid=<%{$tableInfo.classid}%>&tid=<%{$tableInfo.tid}%>" <%{if $basicInfo.tableID eq $tableInfo.tid}%>class="selected"<%{/if}%>><%{$tableInfo.tname}%></a>
+		<%{/foreach}%>
+	</div>
+	<div id="left_selection_button" class="left_selection_button">
+		展
+		<br>
+		开
+		<br>
+		>>
+	</div>
+</div>
+
+<%{include file='_main/footer.tpl.htm'}%>
+
+</body>
+</html>

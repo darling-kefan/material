@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 测试设备组
+ */
+#grouptable{
+	border:1px solid #d8d8d8;
+}
+#roleselect{
+	margin:10px 0;
+}
+#grouptable tr,#grouptable th{
+	text-align:center;
+}
+#grouptable th{
+	height:35px;
+	background:#f4f4f4;
+}
+#grouptable tr{
+	height:30px;
+}
+#grouptable td{
+	overflow:hidden;
+}
+#grouptable tfoot tr{
+	text-align:left;
+}
+#devgroup{
+	margin-top:10px;
+}
+#rolelist{
+	margin-top:10px;
+}
+.pagelist{
+	margin-top:10px;
+	float:right;
+	display:inline-block;
+}

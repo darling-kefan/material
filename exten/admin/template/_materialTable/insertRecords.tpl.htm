@@ -1,0 +1,207 @@
+<!-- <%{capture name=banner}%><tr class="specificationValueTr"> <td> &nbsp; </td> <%{section name=fieldInfo loop=$fieldList}%><td><%{if ($fieldList[fieldInfo].Type|lower eq 'date') || ($fieldList[fieldInfo].Type|lower eq 'datetime')}%> <input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text Wdate<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100" onfocus="WdatePicker();"  /> <%{else}%><input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100"  /> <%{/if}%></td> <%{/section}%><td> <a href="javascript:;" class="deleteSpecificationValue" style="white-space:nowrap;">[删除]</a> </td> </tr><%{/capture}%> -->
+<%{capture name=banner}%><tr class="specificationValueTr"> <td> &nbsp; </td> <%{section name=fieldInfo loop=$fieldList}%> <td> <%{if ($fieldList[fieldInfo].Type|lower eq 'date') || ($fieldList[fieldInfo].Type|lower eq 'datetime')}%> <input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text Wdate<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100" onfocus="WdatePicker();"  /><%{elseif $fieldList[fieldInfo].Field eq 'field0'}%><%{if $currentTable.classid eq 5 || $currentTable.classid eq 8}%> <select name="field0[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$months item=month}%> <option value="<%{$month.value}%>"><%{$month.name}%></option> <%{/foreach}%> </select><%{elseif $currentTable.classid eq 6}%><select name="field0[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$quarters item=quarter}%><option value="<%{$quarter.value}%>"><%{$quarter.name}%></option><%{/foreach}%></select><%{elseif $currentTable.classid eq 7 || $currentTable.classid eq 9}%><select name="field0[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$years item=year}%><option value="<%{$year}%>"><%{$year}%></option><%{/foreach}%></select><%{/if}%><%{elseif $fieldList[fieldInfo].Field eq 'field1'}%><%{if $currentTable.classid eq 1}%><select name="field1[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$months item=month}%><option value="<%{$month.value}%>"><%{$month.name}%></option><%{/foreach}%></select><%{elseif $currentTable.classid eq 2}%><select name="field1[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$quarters item=quarter}%><option value="<%{$quarter.value}%>"><%{$quarter.name}%></option><%{/foreach}%></select><%{elseif $currentTable.classid eq 3}%><select name="field1[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$years item=year}%><option value="<%{$year}%>"><%{$year}%></option><%{/foreach}%></select><%{elseif $currentTable.classid eq 5 || $currentTable.classid eq 6 || $currentTable.classid eq 7 }%><select name="field1[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$provinces item=province}%><option value="<%{$province}%>"><%{$province}%></option><%{/foreach}%></select><%{elseif $currentTable.classid eq 8 || $currentTable.classid eq 9}%><select name="field1[]" style="width:100px; height:25px; line-height:25px"><%{foreach from=$cities item=city}%><option value="<%{$city}%>"><%{$city}%></option><%{/foreach}%></select><%{/if}%><%{else}%><input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100"  /><%{/if}%></td><%{/section}%><td style="white-space:nowrap;"><a href="javascript:;" class="deleteSpecificationValue">[删除]</a></td></tr><%{/capture}%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><%{$_Title}%></title>
+<link href="exten/admin/template/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="exten/admin/template/js/jquery.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.tools.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/jquery.validate.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/common.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/input.js"></script>
+<script type="text/javascript" src="exten/admin/template/js/datePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+	var $specificationTable = $("#specificationTable");
+	var $type = $("#type");
+	var $addSpecificationValueButton = $("#addSpecificationValueButton");
+	var $deleteSpecificationValue = $("a.deleteSpecificationValue");
+	var specificationValueIndex = 1;
+	
+	// 修改记录
+	$type.change(function() {
+		if ($(this).val() == "text") {
+			$("input.specificationValuesImage").val("").prop("disabled", true);
+			$("input.browserButton").prop("disabled", true);
+		} else {
+			$("input.specificationValuesImage").prop("disabled", false);
+			$("input.browserButton").prop("disabled", false);
+		}
+	});
+	
+	$("input.browserButton").browser();
+	
+	// 增加记录
+	$addSpecificationValueButton.click(function() {
+		var trHtml = '<%{$smarty.capture.banner|regex_replace:"/[\/]/":"\/"}%>';
+		$specificationTable.append(trHtml).find("input.browserButton:last").browser();
+		specificationValueIndex ++;
+	});
+	
+	// 删除记录
+	$deleteSpecificationValue.live("click", function() {
+		var $this = $(this);
+		if ($specificationTable.find("tr.specificationValueTr").size() <= 1) {
+			$.message("warn", "必须至少保留一条记录");
+		} else {
+			$this.closest("tr").remove();
+		}
+	});
+	
+	$.validator.addClassRules({
+		specificationValues: {
+			required: true
+		},
+		specificationValuesImage: {
+			required: true
+		},
+		specificationValuesOrder: {
+			digits: true
+		}
+	});
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name: "required",
+			order: "digits"
+		}
+	});
+
+
+	//提交表单
+	var $submit1 = $("#submit1");
+	var $submit2 = $("#submit2");
+
+	$submit1.click(function(){
+		$("#storageType").val("1");
+		$inputForm.submit();
+	});
+	$submit2.click(function(){
+		$("#storageType").val("2");
+		$inputForm.submit();
+	});
+});
+</script>
+</head>
+<body>
+	<div class="path">
+		<%{$_Rank}%>
+	</div>
+	<form id="inputForm" action="admin.php?app=materialTable&act=insertRecords" method="post">
+		<input type="hidden" name="tableID" value="<%{$tableID}%>" />
+		<input type="hidden" name="storageType" id="storageType" value="" />
+		<table id="specificationTable" class="input">
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td colspan="<%{$cols}%>">
+					<a href="javascript:;" id="addSpecificationValueButton" class="button">增加记录</a>
+				</td>
+			</tr>
+			<tr class="title">
+				<td>
+					&nbsp;
+				</td>
+				<%{section name=titleInfo loop=$titleList}%>
+				<td>
+					<%{$titleList[titleInfo]}%>
+				</td>
+				<%{/section}%>
+				<td>
+					操作
+				</td>
+			</tr>
+			<tr class="specificationValueTr">
+				<td>
+					&nbsp;
+				</td>
+				<%{section name=fieldInfo loop=$fieldList}%>
+				<td>
+					<%{if ($fieldList[fieldInfo].Type|lower eq 'date') || ($fieldList[fieldInfo].Type|lower eq 'datetime')}%>
+					<input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text Wdate<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100" onfocus="WdatePicker();"  />
+					<%{elseif $fieldList[fieldInfo].Field eq 'field0'}%>
+						<%{if $currentTable.classid eq 5 || $currentTable.classid eq 8}%>
+							<select name="field0[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$months item=month}%>
+								<option value="<%{$month.value}%>"><%{$month.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 6}%>
+							<select name="field0[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$quarters item=quarter}%>
+								<option value="<%{$quarter.value}%>"><%{$quarter.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 7 || $currentTable.classid eq 9}%>
+							<select name="field0[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$years item=year}%>
+								<option value="<%{$year}%>"><%{$year}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{/if}%>
+					<%{elseif $fieldList[fieldInfo].Field eq 'field1'}%>
+						<%{if $currentTable.classid eq 1}%>
+							<select name="field1[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$months item=month}%>
+								<option value="<%{$month.value}%>"><%{$month.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 2}%>
+							<select name="field1[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$quarters item=quarter}%>
+								<option value="<%{$quarter.value}%>"><%{$quarter.name}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 3}%>
+							<select name="field1[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$years item=year}%>
+								<option value="<%{$year}%>"><%{$year}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 5 
+						   || $currentTable.classid eq 6 
+						   || $currentTable.classid eq 7 }%>
+							<select name="field1[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$provinces item=province}%>
+								<option value="<%{$province}%>"><%{$province}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{elseif $currentTable.classid eq 8 
+						   || $currentTable.classid eq 9}%>
+							<select name="field1[]" style="width:100px; height:25px; line-height:25px">
+								<%{foreach from=$cities item=city}%>
+								<option value="<%{$city}%>"><%{$city}%></option>
+								<%{/foreach}%>
+							</select>
+						<%{/if}%>
+					<%{else}%>
+					<input type="text" name="<%{$fieldList[fieldInfo].Field}%>[]" class="text<%{if $fieldList[fieldInfo].Null eq 'NO'}%> specificationValues<%{/if}%>" value="" maxlength="100"  />
+					<%{/if}%>
+				</td>
+				<%{/section}%>
+				<td style="white-space:nowrap;">
+					<a href="javascript:;" class="deleteSpecificationValue">[删除]</a>
+				</td>
+			</tr>
+		</table>
+		<table class="input">
+			<tr>
+				<th>
+					&nbsp;
+				</th>
+				<td colspan="4">
+					<input type="button" id="submit1" class="button" value="提&nbsp;&nbsp;交" />
+					<input type="button" id="submit2" class="button" value="暂&nbsp;&nbsp;存" />
+					<input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='admin.php?app=materialTable&act=getTablesList'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

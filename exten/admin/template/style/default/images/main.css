@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+#welcomeMsg{
+	margin:10px 20px;
+}
+#fixfristPw{color:red;}
+#welcomeMsg p{padding-left:20px;margin-top:26px;}
+#welcomeMsg .welcomelabel{background:url(images/welcomspan.png) no-repeat;height:32px;line-height:32px;margin-top:10px;}
+#welcomeMsg p img{ vertical-align:middle;width:18px;height:18px;}
+#welcomeMsg p a{color:#417EB7}
+#editpassword{margin-left:30px;}

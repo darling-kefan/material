@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+table{border:1px solid #d8d8d8;margin:20px 0}
+table th,table td{height:30px; line-height:30px;padding-left:5px;border-bottom:1px solid #ebebeb}
+table th input,table td input{vertical-align:text-top;margin-right:5px;}
+table td span{cursor:pointer}
+.pagelist{margin-top:10px;float:right;}
+.bluebtn{margin-top:10px;}
+
+/*修改用户类别*/
+#devicecategory_edit table{border:none}
+#devicecategory_edit table th,#devicecategory_edit table td{border:none}
+#devicecategory_edit table tr{height:50px;}
+.formtype{width:101px;}
+#cecategoryMsg{display:inline-block;height:12px; vertical-align:middle;}

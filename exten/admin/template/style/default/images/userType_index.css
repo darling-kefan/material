@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 用户类型管理
+ */
+ 
+#userTypeList{
+	border:1px solid #D8D8D8;
+	margin-top:20px;
+}
+#userTypeList tr,#userTypeList th{
+	text-align:left;
+}
+#userTypeList th{
+	height:35px;
+	background:#f4f4f4;
+}
+#userTypeList tr{
+	height:30px;
+}
+#usertype_manage .pageIndex{
+	width:20px;
+}
+.pagelist{
+	float:right;
+	margin-top:10px;
+}
+.bluebtn{
+	margin-top:10px;
+}
